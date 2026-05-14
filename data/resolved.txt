@@ -1,0 +1,18 @@
+# File tạo lúc 2026-05-06 14:57:56
+# Format: [timestamp] SESSION | USER_QUESTION | BOT_ANSWER | FEEDBACK
+
+
+[2026-05-06 17:02:45]
+Q: jj
+A: không liên quan
+────────────────────────────────────────
+
+[2026-05-06 17:04:25]
+Q: abcd
+A: gọng abcd là 1234
+────────────────────────────────────────
+
+[2026-05-07 14:42:25]
+Q: kính dưới 500k
+A: bạn hãy vào trang chủ và chọn bộ lọc sắp xếp để tìm sản phẩm tương ứng nhé
+────────────────────────────────────────

@@ -1,0 +1,223 @@
+# File tạo lúc 2026-05-06 14:57:56
+# Format: [timestamp] SESSION | USER_QUESTION | BOT_ANSWER | FEEDBACK
+
+
+[2026-05-06 14:58:33] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: râm
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'râm' — cần thêm vào DB
+PRODUCT_CONTEXT: râm
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-06 14:58:56] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: Kính Unisex TR90 Siêu Dẻo Chống Vỡ
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'Kính Unisex TR90 Siêu Dẻo Chống Vỡ' — cần thêm vào DB
+PRODUCT_CONTEXT: Kính Unisex TR90 Siêu Dẻo Chống Vỡ
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-06 14:59:25] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: mắt
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'mắt' — cần thêm vào DB
+PRODUCT_CONTEXT: mắt
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-06 14:59:46] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: kính mới
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'kính mới' — cần thêm vào DB
+PRODUCT_CONTEXT: kính mới
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-06 14:59:59] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: Cận Hàn Quốc 1.56 Chống Ánh Sáng Xanh
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'Cận Hàn Quốc 1.56 Chống Ánh Sáng Xanh' — cần thêm vào DB
+PRODUCT_CONTEXT: Cận Hàn Quốc 1.56 Chống Ánh Sáng Xanh
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-06 15:37:37] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: có mức
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'có mức' — cần thêm vào DB
+PRODUCT_CONTEXT: có mức
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-06 15:41:08] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: Leo Núi Trekking Chống Gió Bụi
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'Leo Núi Trekking Chống Gió Bụi' — cần thêm vào DB
+PRODUCT_CONTEXT: Leo Núi Trekking Chống Gió Bụi
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-06 15:43:29] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: Leo Núi Trekking Chống Gió Bụi
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'Leo Núi Trekking Chống Gió Bụi' — cần thêm vào DB
+PRODUCT_CONTEXT: Leo Núi Trekking Chống Gió Bụi
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-06 15:44:29] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: gọng kính
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'gọng kính' — cần thêm vào DB
+PRODUCT_CONTEXT: gọng kính
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-06 16:51:54] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: jj
+BOT_ANSWER: Shop chưa hiểu hết ý bạn ơi! 🤔 Bạn đang hỏi về sản phẩm cụ thể, giá cả, hay tính năng gì ạ?
+USER_FEEDBACK: [TỰ ĐỘNG] Confidence thấp: 0.10
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-06 17:03:42] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: abcd
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'abcd' — cần thêm vào DB
+PRODUCT_CONTEXT: abcd
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-06 17:04:49] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: abcd
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'abcd' — cần thêm vào DB
+PRODUCT_CONTEXT: abcd
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-07 13:05:13] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: qua điện thoại. Sau đó shop sẽ gửi tin nhắn SMS xác nhận lại thông tin cho bạn n
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'qua điện thoại. Sau đó shop sẽ gửi tin nhắn SMS xác nhận lại thông tin cho bạn n' — cần thêm vào DB
+PRODUCT_CONTEXT: qua điện thoại. Sau đó shop sẽ gửi tin nhắn SMS xác nhận lại thông tin cho bạn n
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-07 13:05:33] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: hàng qua Zalo có cần cọc trước
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'hàng qua Zalo có cần cọc trước' — cần thêm vào DB
+PRODUCT_CONTEXT: hàng qua Zalo có cần cọc trước
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-07 13:06:55] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: đặt hàng
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'đặt hàng' — cần thêm vào DB
+PRODUCT_CONTEXT: đặt hàng
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-07 13:07:36] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: cọc trước
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'cọc trước' — cần thêm vào DB
+PRODUCT_CONTEXT: cọc trước
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-07 13:07:52] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: trước bao lâu thì có hàng
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'trước bao lâu thì có hàng' — cần thêm vào DB
+PRODUCT_CONTEXT: trước bao lâu thì có hàng
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-07 13:09:23] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: râm
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'râm' — cần thêm vào DB
+PRODUCT_CONTEXT: râm
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-07 13:09:57] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: trước bao lâu thì có hàng
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'trước bao lâu thì có hàng' — cần thêm vào DB
+PRODUCT_CONTEXT: trước bao lâu thì có hàng
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-07 13:12:17] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: Mát Trẻ em phân cực
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'Mát Trẻ em phân cực' — cần thêm vào DB
+PRODUCT_CONTEXT: Mát Trẻ em phân cực
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-07 13:26:58] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: Đặt trước bao lâu thì có hàng?
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'trước bao lâu thì có hàng' — cần thêm vào DB
+PRODUCT_CONTEXT: trước bao lâu thì có hàng
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-07 13:27:06] SESSION:session_1777628356491_o3j2piow1
+USER_QUESTION: đặt hàng
+BOT_ANSWER: [SẢN PHẨM KHÔNG TÌM THẤY TRONG DATABASE]
+USER_FEEDBACK: Khách hỏi sản phẩm: 'đặt hàng' — cần thêm vào DB
+PRODUCT_CONTEXT: đặt hàng
+STATUS: unresolved
+────────────────────────────────────────────────────────────
+
+[2026-05-07 14:20:44] SESSION:session_1777628356491_o3j2piow1 | HASH:444bcb3a
+USER_QUESTION: ok
+BOT_ANSWER: [FALLBACK] Bot không tìm được câu trả lời phù hợp trong knowledge base
+USER_FEEDBACK: [AUTO_FALLBACK] Cần bổ sung câu trả lời cho câu hỏi này vào knowledge base
+INTENT: unknown
+CONFIDENCE: 0.0
+SOURCE: fallback
+STATUS: unresolved
+──────────────────────────────────────────────────────────────────────
+
+[2026-05-07 14:21:41] SESSION:session_1777628356491_o3j2piow1 | HASH:80550609
+USER_QUESTION: Mua kính tặng bạn bè, shop có gói quà không?
+BOT_ANSWER: [PRODUCT_NOT_FOUND] Shop chưa có thông tin về sản phẩm 'Mua kính tặng bạn bè, shop có gói quà không?' trong database.
+USER_FEEDBACK: [MISSING_PRODUCT] Cần thêm sản phẩm: 'Mua kính tặng bạn bè, shop có gói quà không?' vào database
+PRODUCT_CONTEXT: Mua kính tặng bạn bè, shop có gói quà không?
+INTENT: missing_product
+CONFIDENCE: 0.0
+SOURCE: missing_product
+STATUS: unresolved
+──────────────────────────────────────────────────────────────────────
+
+[2026-05-07 14:22:13] SESSION:session_1777628356491_o3j2piow1 | HASH:8bc3033d
+USER_QUESTION: 2026-05-07 14:21:54,446 [ERROR] Chat error: 'FeedbackManager' object has no attribute 'save_no_knowledge'
+Traceback (most recent call last):
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\app.py", line 99, in chat
+    result = engine.process_message(
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\models\chatbot_engine.py", line 65, in process_message
+    result = self._route(intent, entities, message, session_id, conf)
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\models\ch
+BOT_ANSWER: [FALLBACK] Bot không tìm được câu trả lời phù hợp trong knowledge base
+USER_FEEDBACK: [AUTO_FALLBACK] Cần bổ sung câu trả lời cho câu hỏi này vào knowledge base
+INTENT: unknown
+CONFIDENCE: 0.0
+SOURCE: fallback
+STATUS: unresolved
+──────────────────────────────────────────────────────────────────────
+
+[2026-05-07 14:26:00] SESSION:session_1777628356491_o3j2piow1
+REASON: ❌ Sản phẩm không có trong DB
+USER_QUESTION: kính dưới 500k
+BOT_ANSWER: [Sản phẩm không tìm thấy trong database]
+PRODUCT_CONTEXT: dưới 500k
+STATUS: unresolved
+───────────────────────────────────────────────────────

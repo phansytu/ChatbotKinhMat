@@ -1,0 +1,678 @@
+2026-05-04 11:15:32,384 [INFO] ✅ MySQL pool initialized: localhost:3306/eyewear_shop
+2026-05-04 11:15:32,429 [INFO] 📖 Loading knowledge from: data\knowledge.txt
+2026-05-04 11:15:32,666 [INFO]   → Parsed 16 topics
+2026-05-04 11:15:33,099 [INFO]   → Parsed 64 Q&A pairs
+2026-05-04 11:16:28,436 [INFO]   → TF-IDF index built: (315, 5000)
+2026-05-04 11:16:28,437 [INFO] ✅ Knowledge loaded: {'topics_count': 16, 'qa_count': 64, 'sentences_count': 251, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 21.6}
+2026-05-04 11:16:28,439 [INFO] ✅ Knowledge loaded successfully
+2026-05-04 11:16:29,504 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.141.252:5000
+2026-05-04 11:16:29,507 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-04 11:17:31,759 [INFO] 127.0.0.1 - - [04/May/2026 11:17:31] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 11:17:32,004 [INFO] [session_1777628356491_o3j2piow1] User: kính râm...
+2026-05-04 11:17:34,751 [INFO] [session_1777628356491_o3j2piow1] Bot (fallback): Dạ bạn ơi, mình chưa hiểu rõ câu hỏi lắm. Bạn có thể hỏi lại...
+2026-05-04 11:17:34,755 [INFO] 127.0.0.1 - - [04/May/2026 11:17:34] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 11:17:47,225 [INFO] 127.0.0.1 - - [04/May/2026 11:17:47] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 11:17:47,568 [INFO] [session_1777628356491_o3j2piow1] User: Gợi ý kính cho mặt tròn...
+2026-05-04 11:17:47,591 [INFO] [session_1777628356491_o3j2piow1] Bot (tfidf_qa): Bạn có mặt tròn thì huyền hợp nhất với gọng kính chữ nhật ho...
+2026-05-04 11:17:47,600 [INFO] 127.0.0.1 - - [04/May/2026 11:17:47] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 11:18:07,322 [INFO] 127.0.0.1 - - [04/May/2026 11:18:07] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 11:18:07,685 [INFO] [session_1777628356491_o3j2piow1] User: chính sách...
+2026-05-04 11:18:07,716 [INFO] [session_1777628356491_o3j2piow1] Bot (fallback): Xin lỗi bạn, shop không chắc bạn đang hỏi về gì ạ. Bạn muốn ...
+2026-05-04 11:18:07,720 [INFO] 127.0.0.1 - - [04/May/2026 11:18:07] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 11:18:11,882 [INFO] [session_1777628356491_o3j2piow1] User: liên hệ...
+2026-05-04 11:18:11,950 [INFO] [session_1777628356491_o3j2piow1] Bot (fallback): Dạ bạn ơi, mình chưa hiểu rõ câu hỏi lắm. Bạn có thể hỏi lại...
+2026-05-04 11:18:12,031 [INFO] 127.0.0.1 - - [04/May/2026 11:18:12] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 11:18:26,813 [INFO] 127.0.0.1 - - [04/May/2026 11:18:26] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 11:18:27,080 [INFO] [session_1777628356491_o3j2piow1] User: Tư vấn kính nam?...
+2026-05-04 11:18:27,275 [INFO] [session_1777628356491_o3j2piow1] Bot (qa_pair): Kính cho nam thường có thiết kế mạnh mẽ hơn bạn ơi. Nếu đi l...
+2026-05-04 11:18:27,279 [INFO] 127.0.0.1 - - [04/May/2026 11:18:27] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 11:18:45,279 [INFO] 127.0.0.1 - - [04/May/2026 11:18:45] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 11:18:45,677 [INFO] [session_1777628356491_o3j2piow1] User: Có thể đặt hàng qua Zalo không?...
+2026-05-04 11:18:45,738 [INFO] [session_1777628356491_o3j2piow1] Bot (qa_pair): Dạ được bạn ơi! Bạn có thể đặt hàng qua Zalo, Messenger, hoặ...
+2026-05-04 11:18:45,745 [INFO] 127.0.0.1 - - [04/May/2026 11:18:45] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 11:18:56,012 [INFO] 127.0.0.1 - - [04/May/2026 11:18:56] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 11:18:56,895 [INFO] [session_1777628356491_o3j2piow1] User: sản phẩm...
+2026-05-04 11:18:57,100 [INFO] [session_1777628356491_o3j2piow1] Bot (fallback): Dạ bạn ơi, mình chưa hiểu rõ câu hỏi lắm. Bạn có thể hỏi lại...
+2026-05-04 11:18:57,309 [INFO] 127.0.0.1 - - [04/May/2026 11:18:57] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 11:19:17,789 [INFO] 127.0.0.1 - - [04/May/2026 11:19:17] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 11:19:18,121 [INFO] [session_1777628356491_o3j2piow1] User: gọng nhựa...
+2026-05-04 11:19:18,159 [INFO] [session_1777628356491_o3j2piow1] Bot (qa_pair): Mỗi loại có ưu điểm riêng bạn ơi! Gọng kim loại: nhẹ, mỏng, ...
+2026-05-04 11:19:18,164 [INFO] 127.0.0.1 - - [04/May/2026 11:19:18] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 11:27:56,835 [INFO] 127.0.0.1 - - [04/May/2026 11:27:56] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 11:27:57,103 [INFO] [session_1777628356491_o3j2piow1] User: kính mới...
+2026-05-04 11:27:57,131 [INFO] [session_1777628356491_o3j2piow1] Bot (qa_pair): Bạn ơi, bong sơn trong thời gian bảo hành là lỗi sản xuất, s...
+2026-05-04 11:27:57,138 [INFO] 127.0.0.1 - - [04/May/2026 11:27:57] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 11:28:06,709 [INFO] 127.0.0.1 - - [04/May/2026 11:28:06] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 11:28:07,050 [INFO] [session_1777628356491_o3j2piow1] User: hỏng...
+2026-05-04 11:28:07,063 [INFO] [session_1777628356491_o3j2piow1] Bot (fallback):  Bạn hỏi về bảo hành ạ? Shop bảo hành 6 tháng cho tất cả sản...
+2026-05-04 11:28:07,066 [INFO] 127.0.0.1 - - [04/May/2026 11:28:07] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 21:25:46,969 [INFO] ✅ MySQL pool initialized: localhost:3306/eyewear_shop
+2026-05-04 21:25:46,985 [INFO] 📖 Loading knowledge from: data\knowledge.txt
+2026-05-04 21:25:47,000 [INFO]   → Parsed 16 topics
+2026-05-04 21:25:47,122 [INFO]   → Parsed 64 Q&A pairs
+2026-05-04 21:27:00,934 [INFO]   → TF-IDF index built: (315, 5000)
+2026-05-04 21:27:00,936 [INFO] ✅ Knowledge loaded: {'topics_count': 16, 'qa_count': 64, 'sentences_count': 251, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 21.6}
+2026-05-04 21:27:00,937 [INFO] ✅ Knowledge loaded successfully
+2026-05-04 21:27:02,254 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.112:5000
+2026-05-04 21:27:02,257 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-04 21:30:06,878 [INFO] 127.0.0.1 - - [04/May/2026 21:30:06] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 21:30:07,123 [INFO] [session_1777628356491_o3j2piow1] User: chính sách...
+2026-05-04 21:30:09,556 [INFO] [session_1777628356491_o3j2piow1] Bot (fallback): Shop chưa nắm được ý bạn hỏi ạ 😅 Bạn có thể nói rõ hơn không...
+2026-05-04 21:30:09,559 [INFO] 127.0.0.1 - - [04/May/2026 21:30:09] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 21:30:12,328 [INFO] 127.0.0.1 - - [04/May/2026 21:30:12] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 21:30:12,654 [INFO] [session_1777628356491_o3j2piow1] User: kính râm...
+2026-05-04 21:30:12,671 [INFO] [session_1777628356491_o3j2piow1] Bot (fallback): Mình chưa hiểu lắm bạn ơi. Bạn đang cần tư vấn về kính mắt k...
+2026-05-04 21:30:12,677 [INFO] 127.0.0.1 - - [04/May/2026 21:30:12] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 21:30:24,724 [INFO] 127.0.0.1 - - [04/May/2026 21:30:24] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 21:30:25,052 [INFO] [session_1777628356491_o3j2piow1] User: hãy tư vấn cho tôi...
+2026-05-04 21:30:25,091 [INFO] [session_1777628356491_o3j2piow1] Bot (hybrid): Kính cho nam thường có thiết kế mạnh mẽ hơn bạn ơi. Nếu đi l...
+2026-05-04 21:30:25,095 [INFO] 127.0.0.1 - - [04/May/2026 21:30:25] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 21:30:44,626 [INFO] 127.0.0.1 - - [04/May/2026 21:30:44] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 21:30:44,951 [INFO] [session_1777628356491_o3j2piow1] User: phong cách cool...
+2026-05-04 21:30:44,966 [INFO] [session_1777628356491_o3j2piow1] Bot (fallback): Xin lỗi bạn, shop không chắc bạn đang hỏi về gì ạ. Bạn muốn ...
+2026-05-04 21:30:44,969 [INFO] 127.0.0.1 - - [04/May/2026 21:30:44] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 21:30:53,341 [INFO] 127.0.0.1 - - [04/May/2026 21:30:53] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 21:30:53,659 [INFO] [session_1777628356491_o3j2piow1] User: phong cách...
+2026-05-04 21:30:53,677 [INFO] [session_1777628356491_o3j2piow1] Bot (qa_pair): Phong cách kính Hàn Quốc đang rất thịnh hành bạn ơi! Đặc trư...
+2026-05-04 21:30:53,685 [INFO] 127.0.0.1 - - [04/May/2026 21:30:53] "POST /api/chat HTTP/1.1" 200 -
+2026-05-04 21:31:06,771 [INFO] 127.0.0.1 - - [04/May/2026 21:31:06] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-04 21:31:07,088 [INFO] [session_1777628356491_o3j2piow1] User: ví dụ sản phẩm...
+2026-05-04 21:31:07,104 [INFO] [session_1777628356491_o3j2piow1] Bot (fallback): Mình chưa hiểu lắm bạn ơi. Bạn đang cần tư vấn về kính mắt k...
+2026-05-04 21:31:07,107 [INFO] 127.0.0.1 - - [04/May/2026 21:31:07] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:15:10,008 [INFO] ✅ MySQL pool initialized: localhost:3306/eyewear_shop
+2026-05-06 14:15:10,048 [INFO] 📖 Loading knowledge from: data\knowledge.txt
+2026-05-06 14:15:10,054 [INFO]   → Parsed 16 topics
+2026-05-06 14:15:10,065 [INFO]   → Parsed 64 Q&A pairs
+2026-05-06 14:15:30,668 [INFO]   → TF-IDF index built: (315, 5000)
+2026-05-06 14:15:30,669 [INFO] ✅ Knowledge loaded: {'topics_count': 16, 'qa_count': 64, 'sentences_count': 251, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 21.6}
+2026-05-06 14:15:30,669 [INFO] ✅ Knowledge loaded successfully
+2026-05-06 14:15:31,689 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.4:5000
+2026-05-06 14:15:31,690 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-06 14:15:51,019 [INFO] 127.0.0.1 - - [06/May/2026 14:15:51] "GET /api/health HTTP/1.1" 200 -
+2026-05-06 14:15:51,140 [INFO] 127.0.0.1 - - [06/May/2026 14:15:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-05-06 14:16:05,598 [INFO] 127.0.0.1 - - [06/May/2026 14:16:05] "[31m[1mGET /api/chat HTTP/1.1[0m" 405 -
+2026-05-06 14:16:18,847 [INFO] 127.0.0.1 - - [06/May/2026 14:16:18] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:16:19,117 [INFO] [session_1777628356491_o3j2piow1] User: a...
+2026-05-06 14:16:19,640 [INFO] [session_1777628356491_o3j2piow1] Bot (qa_pair): Mặt dài huyền hợp với gọng rộng và nằm ngang bạn ơi, đặc biệ...
+2026-05-06 14:16:19,641 [INFO] 127.0.0.1 - - [06/May/2026 14:16:19] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:17:49,669 [INFO] 127.0.0.1 - - [06/May/2026 14:17:49] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:17:49,938 [INFO] [session_1777628356491_o3j2piow1] User: Tròng Kính Cận Hàn Quốc 1.56 Chống Ánh Sáng Xanh...
+2026-05-06 14:17:49,959 [INFO] [session_1777628356491_o3j2piow1] Bot (tfidf_qa): Tròng kính chống ánh sáng xanh có lớp phủ đặc biệt lọc bớt á...
+2026-05-06 14:17:49,965 [INFO] 127.0.0.1 - - [06/May/2026 14:17:49] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:18:08,138 [INFO] 127.0.0.1 - - [06/May/2026 14:18:08] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:18:08,446 [INFO] [session_1777628356491_o3j2piow1] User: giới thiệu chi tiết về mặt hàng Tròng Kính Cận Hàn Quốc 1.56 Chống Ánh Sáng Xanh...
+2026-05-06 14:18:08,455 [INFO] [session_1777628356491_o3j2piow1] Bot (tfidf_qa): Tròng kính chống ánh sáng xanh có lớp phủ đặc biệt lọc bớt á...
+2026-05-06 14:18:08,458 [INFO] 127.0.0.1 - - [06/May/2026 14:18:08] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:20:57,227 [INFO] 127.0.0.1 - - [06/May/2026 14:20:57] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:20:57,492 [INFO] [session_1777628356491_o3j2piow1] User: giá...
+2026-05-06 14:20:57,501 [INFO] [session_1777628356491_o3j2piow1] Bot (qa_pair): Tầm trung bên shop là khoảng 250k-500k bạn ơi. Ở mức giá này...
+2026-05-06 14:20:57,506 [INFO] 127.0.0.1 - - [06/May/2026 14:20:57] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:26:48,083 [INFO] 127.0.0.1 - - [06/May/2026 14:26:48] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:26:48,338 [INFO] [session_1777628356491_o3j2piow1] User: Tròng Kính Cận Hàn Quốc 1.56 Chống Ánh Sáng Xanh...
+2026-05-06 14:26:48,346 [INFO] [session_1777628356491_o3j2piow1] Bot (tfidf_qa): Tròng kính chống ánh sáng xanh có lớp phủ đặc biệt lọc bớt á...
+2026-05-06 14:26:48,347 [INFO] 127.0.0.1 - - [06/May/2026 14:26:48] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:27:07,551 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-06 14:27:07,552 [INFO] 📖 Loading knowledge from: data\knowledge.txt
+2026-05-06 14:27:07,557 [INFO]   → Parsed 16 topics
+2026-05-06 14:27:07,566 [INFO]   → Parsed 64 Q&A pairs
+2026-05-06 14:27:10,061 [INFO]   → TF-IDF index built: (315, 5000)
+2026-05-06 14:27:10,062 [INFO] ✅ Knowledge loaded: {'topics_count': 16, 'qa_count': 64, 'sentences_count': 251, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 21.6}
+2026-05-06 14:27:10,062 [INFO] ✅ Knowledge loaded successfully
+2026-05-06 14:27:11,023 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.4:5000
+2026-05-06 14:27:11,024 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-06 14:27:19,946 [INFO] 127.0.0.1 - - [06/May/2026 14:27:19] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:27:20,198 [INFO] [session_1777628356491_o3j2piow1] User: Tròng Kính Cận Hàn Quốc 1.56 Chống Ánh Sáng Xanh...
+2026-05-06 14:27:20,297 [INFO] [session_1777628356491_o3j2piow1] Bot (tfidf_qa): Tròng kính chống ánh sáng xanh có lớp phủ đặc biệt lọc bớt á...
+2026-05-06 14:27:20,298 [INFO] 127.0.0.1 - - [06/May/2026 14:27:20] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:34:08,392 [INFO] 127.0.0.1 - - [06/May/2026 14:34:08] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:34:08,641 [INFO] [session_1777628356491_o3j2piow1] User: kính đen...
+2026-05-06 14:34:08,645 [INFO] [session_1777628356491_o3j2piow1] Bot (fallback): Shop chưa nắm được ý bạn hỏi ạ 😅 Bạn có thể nói rõ hơn không...
+2026-05-06 14:34:08,646 [INFO] 127.0.0.1 - - [06/May/2026 14:34:08] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:34:15,323 [INFO] 127.0.0.1 - - [06/May/2026 14:34:15] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:34:15,636 [INFO] [session_1777628356491_o3j2piow1] User: gọng kính...
+2026-05-06 14:34:15,651 [INFO] [session_1777628356491_o3j2piow1] Bot (qa_pair): Mặt vuông huyền hợp với gọng tròn hoặc oval bạn nhé. Những đ...
+2026-05-06 14:34:15,653 [INFO] 127.0.0.1 - - [06/May/2026 14:34:15] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:57:56,831 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-06 14:57:56,840 [INFO] 📖 Loading knowledge from: data\knowledge.txt
+2026-05-06 14:57:56,843 [INFO]   → Parsed 16 topics
+2026-05-06 14:57:56,849 [INFO]   → Parsed 64 Q&A pairs
+2026-05-06 14:57:59,558 [INFO]   → TF-IDF index built: (315, 5000)
+2026-05-06 14:57:59,558 [INFO] ✅ Knowledge loaded: {'topics_count': 16, 'qa_count': 64, 'sentences_count': 251, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 21.6}
+2026-05-06 14:57:59,559 [INFO] ✅ Knowledge: {'topics_count': 16, 'qa_count': 64, 'sentences_count': 251, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 21.6}
+2026-05-06 14:58:00,483 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.4:5000
+2026-05-06 14:58:00,483 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-06 14:58:32,824 [INFO] 127.0.0.1 - - [06/May/2026 14:58:32] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:58:33,086 [INFO] [session_1777628356491_o3j2piow1] >>> kính râm
+2026-05-06 14:58:33,089 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='râm' neg=False
+2026-05-06 14:58:33,091 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-06 14:58:33,221 [INFO] 💾 Saved unresolved: 'râm...'
+2026-05-06 14:58:33,222 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Shop chưa tìm thấy **râm** ạ. Bạn có thể cho shop biết thêm 
+2026-05-06 14:58:33,224 [INFO] 127.0.0.1 - - [06/May/2026 14:58:33] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:58:56,640 [INFO] 127.0.0.1 - - [06/May/2026 14:58:56] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:58:56,962 [INFO] [session_1777628356491_o3j2piow1] >>> Gọng Kính Unisex TR90 Siêu Dẻo Chống Vỡ
+2026-05-06 14:58:56,962 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='Kính Unisex TR90 Siêu Dẻo Chống Vỡ' neg=False
+2026-05-06 14:58:56,963 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-06 14:58:56,969 [INFO] 💾 Saved unresolved: 'Kính Unisex TR90 Siêu Dẻo Chống Vỡ...'
+2026-05-06 14:58:56,969 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Shop chưa tìm thấy **Kính Unisex TR90 Siêu Dẻo Chống Vỡ** ạ.
+2026-05-06 14:58:56,970 [INFO] 127.0.0.1 - - [06/May/2026 14:58:56] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:59:25,007 [INFO] 127.0.0.1 - - [06/May/2026 14:59:25] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:59:25,318 [INFO] [session_1777628356491_o3j2piow1] >>> kính mắt
+2026-05-06 14:59:25,319 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='mắt' neg=False
+2026-05-06 14:59:25,321 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-06 14:59:25,337 [INFO] 💾 Saved unresolved: 'mắt...'
+2026-05-06 14:59:25,338 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Shop chưa tìm thấy **mắt** ạ. Bạn có thể cho shop biết thêm 
+2026-05-06 14:59:25,340 [INFO] 127.0.0.1 - - [06/May/2026 14:59:25] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:59:28,199 [INFO] [session_1777628356491_o3j2piow1] >>> kính
+2026-05-06 14:59:28,203 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.00 product='' neg=False
+2026-05-06 14:59:28,206 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 0.80): Bạn có mặt tròn thì huyền hợp nhất với gọng kính chữ nhật ho
+2026-05-06 14:59:28,210 [INFO] 127.0.0.1 - - [06/May/2026 14:59:28] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:59:31,220 [INFO] 127.0.0.1 - - [06/May/2026 14:59:31] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:59:31,486 [INFO] [session_1777628356491_o3j2piow1] >>> gọng
+2026-05-06 14:59:31,486 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.00 product='' neg=False
+2026-05-06 14:59:31,493 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 0.80): Mặt vuông huyền hợp với gọng tròn hoặc oval bạn nhé. Những đ
+2026-05-06 14:59:31,494 [INFO] 127.0.0.1 - - [06/May/2026 14:59:31] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:59:46,115 [INFO] 127.0.0.1 - - [06/May/2026 14:59:46] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:59:46,432 [INFO] [session_1777628356491_o3j2piow1] >>> gọng kính mới
+2026-05-06 14:59:46,433 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='kính mới' neg=False
+2026-05-06 14:59:46,435 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-06 14:59:46,451 [INFO] 💾 Saved unresolved: 'kính mới...'
+2026-05-06 14:59:46,452 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Dạ shop chưa tìm thấy sản phẩm **kính mới** trong kho bạn ơi
+2026-05-06 14:59:46,455 [INFO] 127.0.0.1 - - [06/May/2026 14:59:46] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 14:59:59,311 [INFO] 127.0.0.1 - - [06/May/2026 14:59:59] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 14:59:59,629 [INFO] [session_1777628356491_o3j2piow1] >>> Tròng Kính Cận Hàn Quốc 1.56 Chống Ánh Sáng Xanh
+2026-05-06 14:59:59,630 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.95 product='Cận Hàn Quốc 1.56 Chống Ánh Sáng Xanh' neg=False
+2026-05-06 14:59:59,632 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-06 14:59:59,648 [INFO] 💾 Saved unresolved: 'Cận Hàn Quốc 1.56 Chống Ánh Sáng Xanh...'
+2026-05-06 14:59:59,649 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Shop chưa tìm thấy **Cận Hàn Quốc 1.56 Chống Ánh Sáng Xanh**
+2026-05-06 14:59:59,652 [INFO] 127.0.0.1 - - [06/May/2026 14:59:59] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 15:37:36,880 [INFO] 127.0.0.1 - - [06/May/2026 15:37:36] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 15:37:37,140 [INFO] [session_1777628356491_o3j2piow1] >>> đưa ra tất cả sản phẩm có mức giá 500k trở xuống
+2026-05-06 15:37:37,140 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='có mức' neg=False
+2026-05-06 15:37:37,142 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-06 15:37:37,149 [INFO] 💾 Saved unresolved: 'có mức...'
+2026-05-06 15:37:37,149 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Hmm, shop chưa có thông tin về **có mức** bạn ơi. Bạn thử hỏ
+2026-05-06 15:37:37,151 [INFO] 127.0.0.1 - - [06/May/2026 15:37:37] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 15:41:07,921 [INFO] 127.0.0.1 - - [06/May/2026 15:41:07] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 15:41:08,188 [INFO] [session_1777628356491_o3j2piow1] >>> Kính Leo Núi Trekking Chống Gió Bụi
+2026-05-06 15:41:08,189 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='Leo Núi Trekking Chống Gió Bụi' neg=False
+2026-05-06 15:41:08,194 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-06 15:41:08,220 [INFO] 💾 Saved unresolved: 'Leo Núi Trekking Chống Gió Bụi...'
+2026-05-06 15:41:08,221 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Hmm, shop chưa có thông tin về **Leo Núi Trekking Chống Gió 
+2026-05-06 15:41:08,222 [INFO] 127.0.0.1 - - [06/May/2026 15:41:08] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 15:43:29,656 [INFO] 127.0.0.1 - - [06/May/2026 15:43:29] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 15:43:29,923 [INFO] [session_1777628356491_o3j2piow1] >>> Kính Leo Núi Trekking Chống Gió Bụi
+2026-05-06 15:43:29,924 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='Leo Núi Trekking Chống Gió Bụi' neg=False
+2026-05-06 15:43:29,926 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-06 15:43:29,944 [INFO] 💾 Saved unresolved: 'Leo Núi Trekking Chống Gió Bụi...'
+2026-05-06 15:43:29,945 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Hmm, shop chưa có thông tin về **Leo Núi Trekking Chống Gió 
+2026-05-06 15:43:29,947 [INFO] 127.0.0.1 - - [06/May/2026 15:43:29] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 15:44:13,748 [INFO] 127.0.0.1 - - [06/May/2026 15:44:13] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 15:44:14,072 [INFO] [session_1777628356491_o3j2piow1] >>> gọng kính
+2026-05-06 15:44:14,074 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.00 product='' neg=False
+2026-05-06 15:44:14,090 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 0.80): Mặt vuông huyền hợp với gọng tròn hoặc oval bạn nhé. Những đ
+2026-05-06 15:44:14,092 [INFO] 127.0.0.1 - - [06/May/2026 15:44:14] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 15:44:29,158 [INFO] 127.0.0.1 - - [06/May/2026 15:44:29] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 15:44:29,478 [INFO] [session_1777628356491_o3j2piow1] >>> đưa ra các sản phẩm gọng kính
+2026-05-06 15:44:29,480 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='gọng kính' neg=False
+2026-05-06 15:44:29,482 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-06 15:44:29,498 [INFO] 💾 Saved unresolved: 'gọng kính...'
+2026-05-06 15:44:29,504 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Hmm, shop chưa có thông tin về **gọng kính** bạn ơi. Bạn thử
+2026-05-06 15:44:29,507 [INFO] 127.0.0.1 - - [06/May/2026 15:44:29] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 16:51:53,657 [INFO] 127.0.0.1 - - [06/May/2026 16:51:53] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 16:51:53,925 [INFO] [session_1777628356491_o3j2piow1] >>> jj
+2026-05-06 16:51:53,937 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.00 product='' neg=False
+2026-05-06 16:51:54,015 [INFO] 💾 Saved unresolved: 'jj...'
+2026-05-06 16:51:54,017 [INFO] [session_1777628356491_o3j2piow1] <<< (fallback, 0.10): Shop chưa hiểu hết ý bạn ơi! 🤔 Bạn đang hỏi về sản phẩm cụ t
+2026-05-06 16:51:54,019 [INFO] 127.0.0.1 - - [06/May/2026 16:51:54] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 16:52:06,876 [INFO] 127.0.0.1 - - [06/May/2026 16:52:06] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 16:52:07,187 [INFO] [session_1777628356491_o3j2piow1] >>> sao sao
+2026-05-06 16:52:07,188 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.00 product='' neg=False
+2026-05-06 16:52:07,194 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 0.36): Titan là chất liệu kim loại siêu nhẹ và siêu bền bạn ơi! Đeo
+2026-05-06 16:52:07,195 [INFO] 127.0.0.1 - - [06/May/2026 16:52:07] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 16:59:52,265 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-06 16:59:52,266 [INFO] 📖 Loading knowledge from: data\knowledge.txt
+2026-05-06 16:59:52,270 [INFO]   → Parsed 16 topics
+2026-05-06 16:59:52,277 [INFO]   → Parsed 64 Q&A pairs
+2026-05-06 16:59:54,532 [INFO]   → TF-IDF index built: (315, 5000)
+2026-05-06 16:59:54,532 [INFO] ✅ Knowledge loaded: {'topics_count': 16, 'qa_count': 64, 'sentences_count': 251, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 21.6}
+2026-05-06 16:59:54,533 [INFO] ✅ Knowledge: {'topics_count': 16, 'qa_count': 64, 'sentences_count': 251, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 21.6}
+2026-05-06 16:59:55,474 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.4:5000
+2026-05-06 16:59:55,475 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-06 17:02:08,932 [INFO] 127.0.0.1 - - [06/May/2026 17:02:08] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-06 17:02:38,631 [INFO] 127.0.0.1 - - [06/May/2026 17:02:38] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-06 17:02:45,720 [INFO] 127.0.0.1 - - [06/May/2026 17:02:45] "OPTIONS /api/feedback/add-qa HTTP/1.1" 200 -
+2026-05-06 17:02:45,990 [INFO] ✅ Added to knowledge: 'jj'
+2026-05-06 17:02:45,991 [INFO] 📖 Loading knowledge from: data\knowledge.txt
+2026-05-06 17:02:46,024 [INFO]   → Parsed 17 topics
+2026-05-06 17:02:46,032 [INFO]   → Parsed 65 Q&A pairs
+2026-05-06 17:02:46,098 [INFO]   → TF-IDF index built: (316, 5000)
+2026-05-06 17:02:46,098 [INFO] ✅ Knowledge loaded: {'topics_count': 17, 'qa_count': 65, 'sentences_count': 251, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 21.7}
+2026-05-06 17:02:46,099 [INFO] 127.0.0.1 - - [06/May/2026 17:02:46] "POST /api/feedback/add-qa HTTP/1.1" 200 -
+2026-05-06 17:02:47,733 [INFO] 127.0.0.1 - - [06/May/2026 17:02:47] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-06 17:03:08,935 [INFO] 127.0.0.1 - - [06/May/2026 17:03:08] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-06 17:03:24,190 [INFO] 127.0.0.1 - - [06/May/2026 17:03:24] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 17:03:24,499 [INFO] [session_1777628356491_o3j2piow1] >>> jj
+2026-05-06 17:03:24,504 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.00 product='' neg=False
+2026-05-06 17:03:24,602 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 1.00): không liên quan
+2026-05-06 17:03:24,603 [INFO] 127.0.0.1 - - [06/May/2026 17:03:24] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 17:03:42,451 [INFO] 127.0.0.1 - - [06/May/2026 17:03:42] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 17:03:42,770 [INFO] [session_1777628356491_o3j2piow1] >>> góng kính abcd
+2026-05-06 17:03:42,771 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='abcd' neg=False
+2026-05-06 17:03:42,775 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-06 17:03:42,795 [INFO] 💾 Saved unresolved: 'abcd...'
+2026-05-06 17:03:42,799 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Shop chưa tìm thấy **abcd** ạ. Bạn có thể cho shop biết thêm
+2026-05-06 17:03:42,800 [INFO] 127.0.0.1 - - [06/May/2026 17:03:42] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 17:03:55,793 [INFO] 127.0.0.1 - - [06/May/2026 17:03:55] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-06 17:04:25,219 [INFO] 127.0.0.1 - - [06/May/2026 17:04:25] "OPTIONS /api/feedback/add-qa HTTP/1.1" 200 -
+2026-05-06 17:04:25,470 [INFO] ✅ Added to knowledge: 'abcd'
+2026-05-06 17:04:25,471 [INFO] 📖 Loading knowledge from: data\knowledge.txt
+2026-05-06 17:04:25,487 [INFO]   → Parsed 17 topics
+2026-05-06 17:04:25,496 [INFO]   → Parsed 66 Q&A pairs
+2026-05-06 17:04:25,615 [INFO]   → TF-IDF index built: (317, 5000)
+2026-05-06 17:04:25,615 [INFO] ✅ Knowledge loaded: {'topics_count': 17, 'qa_count': 66, 'sentences_count': 251, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 21.8}
+2026-05-06 17:04:25,616 [INFO] 127.0.0.1 - - [06/May/2026 17:04:25] "POST /api/feedback/add-qa HTTP/1.1" 200 -
+2026-05-06 17:04:27,275 [INFO] 127.0.0.1 - - [06/May/2026 17:04:27] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-06 17:04:27,582 [INFO] 127.0.0.1 - - [06/May/2026 17:04:27] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-06 17:04:30,743 [INFO] 127.0.0.1 - - [06/May/2026 17:04:30] "[33mGET /api/feedback/logs HTTP/1.1[0m" 404 -
+2026-05-06 17:04:48,762 [INFO] 127.0.0.1 - - [06/May/2026 17:04:48] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 17:04:49,085 [INFO] [session_1777628356491_o3j2piow1] >>> gọng abcd
+2026-05-06 17:04:49,086 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='abcd' neg=False
+2026-05-06 17:04:49,088 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-06 17:04:49,103 [INFO] 💾 Saved unresolved: 'abcd...'
+2026-05-06 17:04:49,104 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Shop chưa tìm thấy **abcd** ạ. Bạn có thể cho shop biết thêm
+2026-05-06 17:04:49,106 [INFO] 127.0.0.1 - - [06/May/2026 17:04:49] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 17:05:01,744 [INFO] 127.0.0.1 - - [06/May/2026 17:05:01] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-06 17:05:02,055 [INFO] [session_1777628356491_o3j2piow1] >>> abcd
+2026-05-06 17:05:02,056 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.00 product='' neg=False
+2026-05-06 17:05:02,063 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 1.00): gọng abcd là 1234
+2026-05-06 17:05:02,068 [INFO] 127.0.0.1 - - [06/May/2026 17:05:02] "POST /api/chat HTTP/1.1" 200 -
+2026-05-06 17:06:16,848 [INFO] 127.0.0.1 - - [06/May/2026 17:06:16] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-06 17:06:35,401 [INFO] 127.0.0.1 - - [06/May/2026 17:06:35] "[33mGET /api/feedback/logs HTTP/1.1[0m" 404 -
+2026-05-06 17:06:46,813 [INFO] 127.0.0.1 - - [06/May/2026 17:06:46] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 13:03:37,933 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-07 13:03:37,947 [INFO] 📖 Loading knowledge from: data\knowledge.txt
+2026-05-07 13:03:38,015 [INFO]   → Parsed 17 topics
+2026-05-07 13:03:38,080 [INFO]   → Parsed 70 Q&A pairs
+2026-05-07 13:04:47,394 [INFO]   → TF-IDF index built: (337, 5000)
+2026-05-07 13:04:47,396 [INFO] ✅ Knowledge loaded: {'topics_count': 17, 'qa_count': 70, 'sentences_count': 267, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 23.0}
+2026-05-07 13:04:47,398 [INFO] ✅ Knowledge: {'topics_count': 17, 'qa_count': 70, 'sentences_count': 267, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 23.0}
+2026-05-07 13:04:48,745 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.4:5000
+2026-05-07 13:04:48,747 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-07 13:05:11,335 [INFO] 127.0.0.1 - - [07/May/2026 13:05:11] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:05:11,600 [INFO] [session_1777628356491_o3j2piow1] >>> Q: Đặt hàng qua Zalo có cần cọc trước không?
+A: Dạ không cần bạn ơi! Đặt qua Zal
+2026-05-07 13:05:11,618 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.95 product='qua điện thoại. Sau đó shop sẽ gửi tin nhắn SMS xác nhận lại thông tin cho bạn n' neg=False
+2026-05-07 13:05:11,623 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-07 13:05:13,586 [INFO] 💾 Saved unresolved: 'qua điện thoại. Sau đó shop sẽ gửi tin nhắn SMS xá...'
+2026-05-07 13:05:13,633 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Dạ shop chưa tìm thấy sản phẩm **qua điện thoại. Sau đó shop
+2026-05-07 13:05:13,669 [INFO] 127.0.0.1 - - [07/May/2026 13:05:13] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:05:32,886 [INFO] 127.0.0.1 - - [07/May/2026 13:05:32] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:05:33,206 [INFO] [session_1777628356491_o3j2piow1] >>> Đặt hàng qua Zalo có cần cọc trước không?
+2026-05-07 13:05:33,226 [INFO] [session_1777628356491_o3j2piow1] intent=buy_intent conf=0.95 product='hàng qua Zalo có cần cọc trước' neg=False
+2026-05-07 13:05:33,230 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-07 13:05:33,265 [INFO] 💾 Saved unresolved: 'hàng qua Zalo có cần cọc trước...'
+2026-05-07 13:05:33,273 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Shop chưa tìm thấy **hàng qua Zalo có cần cọc trước** ạ. Bạn
+2026-05-07 13:05:33,276 [INFO] 127.0.0.1 - - [07/May/2026 13:05:33] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:05:58,754 [INFO] 127.0.0.1 - - [07/May/2026 13:05:58] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:05:59,080 [INFO] [session_1777628356491_o3j2piow1] >>> abcd
+2026-05-07 13:05:59,082 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.00 product='' neg=False
+2026-05-07 13:05:59,100 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 1.00): gọng abcd là 1234
+2026-05-07 13:05:59,103 [INFO] 127.0.0.1 - - [07/May/2026 13:05:59] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:06:11,554 [INFO] 127.0.0.1 - - [07/May/2026 13:06:11] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:06:11,878 [INFO] [session_1777628356491_o3j2piow1] >>> chào
+2026-05-07 13:06:11,879 [INFO] [session_1777628356491_o3j2piow1] intent=greeting conf=0.48 product='' neg=False
+2026-05-07 13:06:11,880 [INFO] [session_1777628356491_o3j2piow1] <<< (template, 1.00): Chào bạn! 🕶️ Shop kính mắt sẵn sàng tư vấn cho bạn.
+Bạn đang
+2026-05-07 13:06:11,883 [INFO] 127.0.0.1 - - [07/May/2026 13:06:11] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:06:35,844 [INFO] 127.0.0.1 - - [07/May/2026 13:06:35] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:06:36,171 [INFO] [session_1777628356491_o3j2piow1] >>> tiktok
+2026-05-07 13:06:36,172 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.00 product='' neg=False
+2026-05-07 13:06:36,189 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 0.80): Dạ có bạn ơi! Shop có bán trên TikTok Shop chính thức. Bạn c
+2026-05-07 13:06:36,202 [INFO] 127.0.0.1 - - [07/May/2026 13:06:36] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:06:47,279 [INFO] 127.0.0.1 - - [07/May/2026 13:06:47] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:06:47,609 [INFO] [session_1777628356491_o3j2piow1] >>> zalo
+2026-05-07 13:06:47,610 [INFO] [session_1777628356491_o3j2piow1] intent=greeting conf=0.48 product='' neg=False
+2026-05-07 13:06:47,612 [INFO] [session_1777628356491_o3j2piow1] <<< (template, 1.00): Xin chào bạn! 👋 Mình là trợ lý tư vấn kính mắt. Bạn đang cần
+2026-05-07 13:06:47,614 [INFO] 127.0.0.1 - - [07/May/2026 13:06:47] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:06:55,284 [INFO] 127.0.0.1 - - [07/May/2026 13:06:55] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:06:55,614 [INFO] [session_1777628356491_o3j2piow1] >>> đặt hàng
+2026-05-07 13:06:55,615 [INFO] [session_1777628356491_o3j2piow1] intent=buy_intent conf=0.95 product='' neg=False
+2026-05-07 13:06:55,618 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-07 13:06:55,644 [INFO] 💾 Saved unresolved: 'đặt hàng...'
+2026-05-07 13:06:55,650 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Dạ shop chưa tìm thấy sản phẩm **đặt hàng** trong kho bạn ơi
+2026-05-07 13:06:55,653 [INFO] 127.0.0.1 - - [07/May/2026 13:06:55] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:07:36,495 [INFO] 127.0.0.1 - - [07/May/2026 13:07:36] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:07:36,824 [INFO] [session_1777628356491_o3j2piow1] >>> có cần cọc trước không
+2026-05-07 13:07:36,825 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='cọc trước' neg=False
+2026-05-07 13:07:36,831 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-07 13:07:36,859 [INFO] 💾 Saved unresolved: 'cọc trước...'
+2026-05-07 13:07:36,867 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Hmm, shop chưa có thông tin về **cọc trước** bạn ơi. Bạn thử
+2026-05-07 13:07:36,871 [INFO] 127.0.0.1 - - [07/May/2026 13:07:36] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:07:52,240 [INFO] 127.0.0.1 - - [07/May/2026 13:07:52] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:07:52,561 [INFO] [session_1777628356491_o3j2piow1] >>> Đặt trước bao lâu thì có hàng?
+2026-05-07 13:07:52,564 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='trước bao lâu thì có hàng' neg=False
+2026-05-07 13:07:52,567 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-07 13:07:52,601 [INFO] 💾 Saved unresolved: 'trước bao lâu thì có hàng...'
+2026-05-07 13:07:52,603 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Shop chưa tìm thấy **trước bao lâu thì có hàng** ạ. Bạn có t
+2026-05-07 13:07:52,607 [INFO] 127.0.0.1 - - [07/May/2026 13:07:52] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:08:53,498 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-07 13:08:53,501 [INFO] 📖 Loading knowledge from: data\knowledge.txt
+2026-05-07 13:08:53,539 [INFO]   → Parsed 17 topics
+2026-05-07 13:08:53,574 [INFO]   → Parsed 89 Q&A pairs
+2026-05-07 13:08:57,456 [INFO]   → TF-IDF index built: (438, 5000)
+2026-05-07 13:08:57,457 [INFO] ✅ Knowledge loaded: {'topics_count': 17, 'qa_count': 89, 'sentences_count': 349, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 29.8}
+2026-05-07 13:08:57,458 [INFO] ✅ Knowledge: {'topics_count': 17, 'qa_count': 89, 'sentences_count': 349, 'file_path': 'data\\knowledge.txt', 'file_size_kb': 29.8}
+2026-05-07 13:08:58,476 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.4:5000
+2026-05-07 13:08:58,477 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-07 13:09:23,138 [INFO] 127.0.0.1 - - [07/May/2026 13:09:23] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:09:23,386 [INFO] [session_1777628356491_o3j2piow1] >>> kính râm
+2026-05-07 13:09:23,400 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='râm' neg=False
+2026-05-07 13:09:23,403 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-07 13:09:23,656 [INFO] 💾 Saved unresolved: 'râm...'
+2026-05-07 13:09:23,661 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Shop chưa tìm thấy **râm** ạ. Bạn có thể cho shop biết thêm 
+2026-05-07 13:09:23,665 [INFO] 127.0.0.1 - - [07/May/2026 13:09:23] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:09:29,346 [INFO] 127.0.0.1 - - [07/May/2026 13:09:29] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:09:29,673 [INFO] [session_1777628356491_o3j2piow1] >>> chính sách bảo hành
+2026-05-07 13:09:29,694 [INFO] [session_1777628356491_o3j2piow1] intent=ask_warranty conf=0.95 product='' neg=False
+2026-05-07 13:09:29,743 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 0.39): CHÍNH SÁCH ĐỔI TRẢ MỞ RỘNG
+2026-05-07 13:09:29,746 [INFO] 127.0.0.1 - - [07/May/2026 13:09:29] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:09:34,718 [INFO] 127.0.0.1 - - [07/May/2026 13:09:34] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:09:35,166 [INFO] [session_1777628356491_o3j2piow1] >>> sản phẩm
+2026-05-07 13:09:35,172 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.00 product='' neg=False
+2026-05-07 13:09:35,236 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 0.35): Shop sẽ gửi ngay sản phẩm mới thay thế, miễn phí ship 2 chiề
+2026-05-07 13:09:35,238 [INFO] 127.0.0.1 - - [07/May/2026 13:09:35] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:09:45,923 [INFO] 127.0.0.1 - - [07/May/2026 13:09:45] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:09:46,271 [INFO] [session_1777628356491_o3j2piow1] >>> zalo
+2026-05-07 13:09:46,272 [INFO] [session_1777628356491_o3j2piow1] intent=greeting conf=0.48 product='' neg=False
+2026-05-07 13:09:46,273 [INFO] [session_1777628356491_o3j2piow1] <<< (template, 1.00): Chào bạn! 🕶️ Shop kính mắt sẵn sàng tư vấn cho bạn.
+Bạn đang
+2026-05-07 13:09:46,276 [INFO] 127.0.0.1 - - [07/May/2026 13:09:46] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:09:56,714 [INFO] 127.0.0.1 - - [07/May/2026 13:09:56] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:09:57,053 [INFO] [session_1777628356491_o3j2piow1] >>> Đặt trước bao lâu thì có hàng?
+2026-05-07 13:09:57,055 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='trước bao lâu thì có hàng' neg=False
+2026-05-07 13:09:57,058 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-07 13:09:57,090 [INFO] 💾 Saved unresolved: 'trước bao lâu thì có hàng...'
+2026-05-07 13:09:57,092 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Hmm, shop chưa có thông tin về **trước bao lâu thì có hàng**
+2026-05-07 13:09:57,095 [INFO] 127.0.0.1 - - [07/May/2026 13:09:57] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:12:17,019 [INFO] 127.0.0.1 - - [07/May/2026 13:12:17] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:12:17,287 [INFO] [session_1777628356491_o3j2piow1] >>> Kính Mát Trẻ em phân cực
+2026-05-07 13:12:17,289 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='Mát Trẻ em phân cực' neg=False
+2026-05-07 13:12:17,294 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-07 13:12:17,332 [INFO] 💾 Saved unresolved: 'Mát Trẻ em phân cực...'
+2026-05-07 13:12:17,333 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Shop chưa tìm thấy **Mát Trẻ em phân cực** ạ. Bạn có thể cho
+2026-05-07 13:12:17,336 [INFO] 127.0.0.1 - - [07/May/2026 13:12:17] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:26:23,517 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-07 13:26:23,580 [INFO]   → topics=17  qa_pairs=89
+2026-05-07 13:26:29,548 [INFO]   → TF-IDF (90, 1797)
+2026-05-07 13:26:29,549 [INFO] ✅ Knowledge loaded: {'topics_count': 17, 'qa_count': 89, 'sentences_count': 1, 'file_kb': 29.8}
+2026-05-07 13:26:29,550 [INFO] ✅ Knowledge: {'topics_count': 17, 'qa_count': 89, 'sentences_count': 1, 'file_kb': 29.8}
+2026-05-07 13:26:30,721 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.4:5000
+2026-05-07 13:26:30,722 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-07 13:26:57,418 [INFO] 127.0.0.1 - - [07/May/2026 13:26:57] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:26:57,668 [INFO] [session_1777628356491_o3j2piow1] >>> Đặt trước bao lâu thì có hàng?
+2026-05-07 13:26:57,773 [INFO] [session_1777628356491_o3j2piow1] intent=ask_product conf=0.70 product='trước bao lâu thì có hàng' neg=False
+2026-05-07 13:26:57,781 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-07 13:26:57,786 [INFO]   DB find_by_name('trước bao lâu thì có hàng') → 0 results
+2026-05-07 13:26:58,067 [INFO] 💾 Saved unresolved: 'Đặt trước bao lâu thì có hàng?...'
+2026-05-07 13:26:58,068 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Hmm, shop chưa có thông tin về **trước bao lâu thì có hàng**
+2026-05-07 13:26:58,074 [INFO] 127.0.0.1 - - [07/May/2026 13:26:58] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 13:27:05,728 [INFO] 127.0.0.1 - - [07/May/2026 13:27:05] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 13:27:06,075 [INFO] [session_1777628356491_o3j2piow1] >>> đặt hàng
+2026-05-07 13:27:06,083 [INFO] [session_1777628356491_o3j2piow1] intent=buy_intent conf=0.95 product='' neg=False
+2026-05-07 13:27:06,091 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-07 13:27:06,097 [INFO]   DB find_by_name('đặt hàng') → 0 results
+2026-05-07 13:27:06,124 [INFO] 💾 Saved unresolved: 'đặt hàng...'
+2026-05-07 13:27:06,126 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Shop chưa tìm thấy **đặt hàng** ạ. Bạn có thể cho shop biết 
+2026-05-07 13:27:06,129 [INFO] 127.0.0.1 - - [07/May/2026 13:27:06] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:07:35,764 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-07 14:07:35,824 [INFO] ✅ SQLite tables created/verified
+2026-05-07 14:07:35,826 [INFO] 📦 Loaded 0 Q&A pairs from database
+2026-05-07 14:07:35,828 [INFO] ✅ Knowledge Base ready: {'total_qa': 0, 'topics': 0, 'intents': 0, 'source_files': 0, 'use_embedding': False, 'cache_size': 200}
+2026-05-07 14:10:01,948 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-07 14:10:01,955 [INFO] ✅ SQLite tables created/verified
+2026-05-07 14:10:01,958 [INFO] 📦 Loaded 0 Q&A pairs from database
+2026-05-07 14:10:01,960 [INFO] ✅ Knowledge Base ready: {'total_qa': 0, 'topics': 0, 'intents': 0, 'source_files': 0, 'use_embedding': False, 'cache_size': 200}
+2026-05-07 14:11:15,267 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-07 14:11:15,275 [INFO] ✅ SQLite tables created/verified
+2026-05-07 14:11:15,277 [INFO] 📦 Loaded 0 Q&A pairs from database
+2026-05-07 14:11:15,280 [INFO] ✅ Knowledge Base ready: {'total_qa': 0, 'topics': 0, 'intents': 0, 'source_files': 0, 'use_embedding': False, 'cache_size': 200}
+2026-05-07 14:11:15,285 [INFO] 📦 Loaded 0 Q&A pairs from database
+2026-05-07 14:11:15,286 [INFO] ✅ Knowledge Base ready: {'total_qa': 0, 'topics': 0, 'intents': 0, 'source_files': 0, 'use_embedding': False, 'cache_size': 200}
+2026-05-07 14:11:15,288 [INFO] ✅ Knowledge: {'total_qa': 0, 'topics': 0, 'intents': 0, 'source_files': 0, 'use_embedding': False, 'cache_size': 200}
+2026-05-07 14:11:16,456 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.4:5000
+2026-05-07 14:11:16,564 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-07 14:12:09,582 [INFO] 127.0.0.1 - - [07/May/2026 14:12:09] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:12:09,888 [INFO] [session_1777628356491_o3j2piow1] >>> kính râm
+2026-05-07 14:12:09,914 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.30 product='' neg=False
+2026-05-07 14:12:09,975 [INFO] [session_1777628356491_o3j2piow1] <<< (db_fallback, 0.50): Shop tìm được một số sản phẩm liên quan, bạn xem thử nhé:
+2026-05-07 14:12:09,979 [INFO] 127.0.0.1 - - [07/May/2026 14:12:09] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:12:14,314 [INFO] [session_1777628356491_o3j2piow1] >>> ok
+2026-05-07 14:12:14,317 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.30 product='' neg=False
+2026-05-07 14:12:14,323 [ERROR] Chat error: 'FeedbackManager' object has no attribute 'save_fallback'
+Traceback (most recent call last):
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\app.py", line 99, in chat
+    result = engine.process_message(
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\models\chatbot_engine.py", line 65, in process_message
+    result = self._route(intent, entities, message, session_id, conf)
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\models\chatbot_engine.py", line 105, in _route
+    return self._handle_fallback(message, entities, session_id)
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\models\chatbot_engine.py", line 275, in _handle_fallback
+    self.feedback.save_fallback(session_id, message)
+AttributeError: 'FeedbackManager' object has no attribute 'save_fallback'
+2026-05-07 14:12:14,370 [INFO] 127.0.0.1 - - [07/May/2026 14:12:14] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+2026-05-07 14:13:47,146 [INFO] 127.0.0.1 - - [07/May/2026 14:13:47] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:13:47,382 [INFO] [session_1777628356491_o3j2piow1] >>> c
+2026-05-07 14:13:47,383 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.30 product='' neg=False
+2026-05-07 14:13:47,395 [ERROR] Chat error: 'FeedbackManager' object has no attribute 'save_fallback'
+Traceback (most recent call last):
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\app.py", line 99, in chat
+    result = engine.process_message(
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\models\chatbot_engine.py", line 65, in process_message
+    result = self._route(intent, entities, message, session_id, conf)
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\models\chatbot_engine.py", line 105, in _route
+    return self._handle_fallback(message, entities, session_id)
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\models\chatbot_engine.py", line 275, in _handle_fallback
+    self.feedback.save_fallback(session_id, message)
+AttributeError: 'FeedbackManager' object has no attribute 'save_fallback'
+2026-05-07 14:13:47,400 [INFO] 127.0.0.1 - - [07/May/2026 14:13:47] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+2026-05-07 14:20:09,245 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-07 14:20:09,250 [INFO] ✅ SQLite tables created/verified
+2026-05-07 14:20:09,251 [INFO] 📦 Loaded 0 Q&A pairs from database
+2026-05-07 14:20:09,253 [INFO] ✅ Knowledge Base ready: {'total_qa': 0, 'topics': 0, 'intents': 0, 'source_files': 0, 'use_embedding': False, 'cache_size': 200}
+2026-05-07 14:20:09,257 [INFO] 📦 Loaded 0 Q&A pairs from database
+2026-05-07 14:20:09,258 [INFO] ✅ Knowledge Base ready: {'total_qa': 0, 'topics': 0, 'intents': 0, 'source_files': 0, 'use_embedding': False, 'cache_size': 200}
+2026-05-07 14:20:09,259 [INFO] ✅ Knowledge: {'total_qa': 0, 'topics': 0, 'intents': 0, 'source_files': 0, 'use_embedding': False, 'cache_size': 200}
+2026-05-07 14:20:10,351 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.4:5000
+2026-05-07 14:20:10,356 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-07 14:20:20,853 [INFO] 127.0.0.1 - - [07/May/2026 14:20:20] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:20:21,101 [INFO] [session_1777628356491_o3j2piow1] >>> kính râm
+2026-05-07 14:20:21,110 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.30 product='' neg=False
+2026-05-07 14:20:21,133 [INFO] [session_1777628356491_o3j2piow1] <<< (db_fallback, 0.50): Shop tìm được một số sản phẩm liên quan, bạn xem thử nhé:
+2026-05-07 14:20:21,136 [INFO] 127.0.0.1 - - [07/May/2026 14:20:21] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:20:24,971 [INFO] [session_1777628356491_o3j2piow1] >>> liên hệ
+2026-05-07 14:20:24,978 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.30 product='' neg=False
+2026-05-07 14:20:25,006 [INFO] [session_1777628356491_o3j2piow1] <<< (db_fallback, 0.50): Shop tìm được một số sản phẩm liên quan, bạn xem thử nhé:
+2026-05-07 14:20:25,013 [INFO] 127.0.0.1 - - [07/May/2026 14:20:25] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:20:44,326 [INFO] 127.0.0.1 - - [07/May/2026 14:20:44] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:20:44,585 [INFO] [session_1777628356491_o3j2piow1] >>> ok
+2026-05-07 14:20:44,586 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.30 product='' neg=False
+2026-05-07 14:20:44,593 [INFO] 💾 Saved unresolved: 'ok...' (source=fallback)
+2026-05-07 14:20:44,594 [INFO] [session_1777628356491_o3j2piow1] <<< (fallback, 0.10): Shop chưa nắm được ý bạn hỏi ơi 🤔 Bạn đang hỏi về sản phẩm c
+2026-05-07 14:20:44,603 [INFO] 127.0.0.1 - - [07/May/2026 14:20:44] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:20:53,728 [INFO] 127.0.0.1 - - [07/May/2026 14:20:53] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:20:54,115 [INFO] [session_1777628356491_o3j2piow1] >>> tính năng
+2026-05-07 14:20:54,116 [INFO] [session_1777628356491_o3j2piow1] intent=ask_features conf=0.39 product='' neg=False
+2026-05-07 14:20:54,143 [INFO] [session_1777628356491_o3j2piow1] <<< (db_fallback, 0.50): Shop tìm được một số sản phẩm liên quan, bạn xem thử nhé:
+2026-05-07 14:20:54,148 [INFO] 127.0.0.1 - - [07/May/2026 14:20:54] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:21:40,803 [INFO] 127.0.0.1 - - [07/May/2026 14:21:40] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:21:41,262 [INFO] [session_1777628356491_o3j2piow1] >>> Mua kính tặng bạn bè, shop có gói quà không?
+2026-05-07 14:21:41,265 [INFO] [session_1777628356491_o3j2piow1] intent=buy_intent conf=0.33 product='' neg=False
+2026-05-07 14:21:41,275 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-07 14:21:41,281 [INFO]   DB find_by_name('Mua kính tặng bạn bè, shop có gói quà không?') → 0 results
+2026-05-07 14:21:41,309 [INFO] 💾 Saved unresolved: 'Mua kính tặng bạn bè, shop có gói quà không?...' (source=missing_product)
+2026-05-07 14:21:41,312 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Dạ shop chưa tìm thấy sản phẩm **Mua kính tặng bạn bè, shop 
+2026-05-07 14:21:41,318 [INFO] 127.0.0.1 - - [07/May/2026 14:21:41] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:21:54,019 [INFO] 127.0.0.1 - - [07/May/2026 14:21:54] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:21:54,443 [INFO] [session_1777628356491_o3j2piow1] >>> Kính chống ánh sáng xanh là gì?
+2026-05-07 14:21:54,445 [INFO] [session_1777628356491_o3j2piow1] intent=ask_blue_light conf=0.49 product='' neg=False
+2026-05-07 14:21:54,446 [ERROR] Chat error: 'FeedbackManager' object has no attribute 'save_no_knowledge'
+Traceback (most recent call last):
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\app.py", line 99, in chat
+    result = engine.process_message(
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\models\chatbot_engine.py", line 65, in process_message
+    result = self._route(intent, entities, message, session_id, conf)
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\models\chatbot_engine.py", line 102, in _route
+    return self._handle_knowledge(message, intent, session_id)
+  File "D:\java_new\BanKinhThoiTrang\kinh_mat_chatbot\models\chatbot_engine.py", line 238, in _handle_knowledge
+    self.feedback.save_no_knowledge(session_id, message)
+AttributeError: 'FeedbackManager' object has no attribute 'save_no_knowledge'
+2026-05-07 14:21:54,455 [INFO] 127.0.0.1 - - [07/May/2026 14:21:54] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+2026-05-07 14:22:13,117 [INFO] 127.0.0.1 - - [07/May/2026 14:22:13] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:22:13,489 [INFO] [session_1777628356491_o3j2piow1] >>> 2026-05-07 14:21:54,446 [ERROR] Chat error: 'FeedbackManager' object has no attr
+2026-05-07 14:22:13,501 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.30 product='' neg=False
+2026-05-07 14:22:13,527 [INFO] 💾 Saved unresolved: '2026-05-07 14:21:54,446 [ERROR] Chat error: 'Feedb...' (source=fallback)
+2026-05-07 14:22:13,528 [INFO] [session_1777628356491_o3j2piow1] <<< (fallback, 0.10): Shop chưa nắm được ý bạn hỏi ơi 🤔 Bạn đang hỏi về sản phẩm c
+2026-05-07 14:22:13,538 [INFO] 127.0.0.1 - - [07/May/2026 14:22:13] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:25:28,686 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-07 14:25:28,692 [INFO] ✅ SQLite tables created/verified
+2026-05-07 14:25:28,694 [INFO] 📦 Loaded 0 Q&A pairs from database
+2026-05-07 14:25:28,696 [INFO] ✅ Knowledge Base ready: {'total_qa': 0, 'topics': 0, 'intents': 0, 'source_files': 0, 'use_embedding': False, 'cache_size': 200}
+2026-05-07 14:25:28,700 [INFO] 📦 Loaded 0 Q&A pairs from database
+2026-05-07 14:25:28,701 [INFO] ✅ Knowledge Base ready: {'total_qa': 0, 'topics': 0, 'intents': 0, 'source_files': 0, 'use_embedding': False, 'cache_size': 200}
+2026-05-07 14:25:28,702 [INFO] ✅ Knowledge: {'total_qa': 0, 'topics': 0, 'intents': 0, 'source_files': 0, 'use_embedding': False, 'cache_size': 200}
+2026-05-07 14:25:29,759 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.4:5000
+2026-05-07 14:25:29,763 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-07 14:25:55,488 [INFO] 127.0.0.1 - - [07/May/2026 14:25:55] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:25:55,754 [INFO] [session_1777628356491_o3j2piow1] >>> liên hệ
+2026-05-07 14:25:55,773 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.30 product='' neg=False
+2026-05-07 14:25:55,804 [INFO] [session_1777628356491_o3j2piow1] <<< (db_fallback, 0.50): Shop tìm được một số sản phẩm liên quan, bạn xem thử nhé:
+2026-05-07 14:25:55,808 [INFO] 127.0.0.1 - - [07/May/2026 14:25:55] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:26:00,625 [INFO] 127.0.0.1 - - [07/May/2026 14:26:00] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:26:00,960 [INFO] [session_1777628356491_o3j2piow1] >>> kính dưới 500k
+2026-05-07 14:26:00,962 [INFO] [session_1777628356491_o3j2piow1] intent=search_by_price conf=0.34 product='dưới 500k' neg=False
+2026-05-07 14:26:00,968 [ERROR] find_by_name error: Not all parameters were used in the SQL statement
+2026-05-07 14:26:00,977 [INFO]   DB find_by_name('dưới 500k') → 0 results
+2026-05-07 14:26:00,979 [INFO] 💾 Unresolved [missing_product]: 'kính dưới 500k'
+2026-05-07 14:26:00,981 [INFO] [session_1777628356491_o3j2piow1] <<< (not_found, 0.30): Hmm, shop chưa có thông tin về **dưới 500k** bạn ơi. Bạn thử
+2026-05-07 14:26:00,992 [INFO] 127.0.0.1 - - [07/May/2026 14:26:00] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:26:06,439 [INFO] 127.0.0.1 - - [07/May/2026 14:26:06] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:26:06,778 [INFO] [session_1777628356491_o3j2piow1] >>> kính râm
+2026-05-07 14:26:06,779 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.30 product='' neg=False
+2026-05-07 14:26:06,803 [INFO] [session_1777628356491_o3j2piow1] <<< (db_fallback, 0.50): Shop tìm được một số sản phẩm liên quan, bạn xem thử nhé:
+2026-05-07 14:26:06,806 [INFO] 127.0.0.1 - - [07/May/2026 14:26:06] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:28:39,733 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-07 14:28:39,738 [INFO] ✅ SQLite tables created/verified
+2026-05-07 14:28:39,739 [INFO] 📦 Loaded 0 Q&A pairs from database
+2026-05-07 14:28:39,741 [INFO] ✅ Knowledge Base ready: {'total_qa': 0, 'topics': 0, 'intents': 0, 'source_files': 0, 'use_embedding': False, 'cache_size': 200}
+2026-05-07 14:40:04,195 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-07 14:40:04,347 [INFO]   → topics=17  qa_pairs=89
+2026-05-07 14:40:12,243 [INFO]   → TF-IDF (91, 1806)
+2026-05-07 14:40:12,245 [INFO] ✅ Knowledge loaded: {'topics_count': 17, 'qa_count': 89, 'sentences_count': 2, 'file_kb': 36.6}
+2026-05-07 14:40:12,246 [INFO] ✅ Knowledge: {'topics_count': 17, 'qa_count': 89, 'sentences_count': 2, 'file_kb': 36.6}
+2026-05-07 14:40:13,314 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.4:5000
+2026-05-07 14:40:13,316 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-07 14:40:31,047 [INFO] 127.0.0.1 - - [07/May/2026 14:40:31] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:40:31,310 [INFO] [session_1777628356491_o3j2piow1] >>> liên hệ
+2026-05-07 14:40:31,461 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.00 product='' neg=False
+2026-05-07 14:40:31,839 [INFO]   Knowledge hit: conf=0.43 src=qa_exact q='jj'
+2026-05-07 14:40:31,840 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 0.60): không liên quan
+2026-05-07 14:40:31,850 [INFO] 127.0.0.1 - - [07/May/2026 14:40:31] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:40:34,171 [INFO] [session_1777628356491_o3j2piow1] >>> chính sách bảo hành
+2026-05-07 14:40:34,173 [INFO] [session_1777628356491_o3j2piow1] intent=ask_warranty conf=0.95 product='' neg=False
+2026-05-07 14:40:34,199 [INFO]   Knowledge hit: conf=0.53 src=tfidf q='Shop bảo hành kính mắt không?'
+2026-05-07 14:40:34,269 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 0.80): Dạ có bạn ơi! Bên shop bảo hành gọng kính 6 tháng, bao gồm: 
+2026-05-07 14:40:34,276 [INFO] 127.0.0.1 - - [07/May/2026 14:40:34] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:40:41,895 [INFO] 127.0.0.1 - - [07/May/2026 14:40:41] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:40:42,163 [INFO] [session_1777628356491_o3j2piow1] >>> kính
+2026-05-07 14:40:42,164 [INFO] [session_1777628356491_o3j2piow1] intent=unknown conf=0.00 product='' neg=False
+2026-05-07 14:40:42,179 [INFO]   Knowledge hit: conf=0.85 src=qa_exact q='Mặt tròn nên đeo kính gì?'
+2026-05-07 14:40:42,180 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 0.60): Bạn có mặt tròn thì huyền hợp nhất với gọng kính chữ nhật ho
+2026-05-07 14:40:42,186 [INFO] 127.0.0.1 - - [07/May/2026 14:40:42] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:41:04,168 [INFO] 127.0.0.1 - - [07/May/2026 14:41:04] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-07 14:41:04,502 [INFO] [session_1777628356491_o3j2piow1] >>> giới thiệu về kính mắt trẻ em uv400
+2026-05-07 14:41:04,504 [INFO] [session_1777628356491_o3j2piow1] intent=ask_uv conf=0.95 product='' neg=False
+2026-05-07 14:41:04,523 [INFO]   Knowledge hit: conf=0.20 src=tfidf q='Shop bảo hành kính mắt không?'
+2026-05-07 14:41:04,524 [INFO] [session_1777628356491_o3j2piow1] <<< (knowledge, 0.80): Dạ có bạn ơi! Bên shop bảo hành gọng kính 6 tháng, bao gồm: 
+2026-05-07 14:41:04,528 [INFO] 127.0.0.1 - - [07/May/2026 14:41:04] "POST /api/chat HTTP/1.1" 200 -
+2026-05-07 14:41:31,889 [INFO] 127.0.0.1 - - [07/May/2026 14:41:31] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:41:34,112 [INFO] 127.0.0.1 - - [07/May/2026 14:41:34] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:42:01,602 [INFO] 127.0.0.1 - - [07/May/2026 14:42:01] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:42:25,219 [INFO] 127.0.0.1 - - [07/May/2026 14:42:25] "OPTIONS /api/feedback/add-qa HTTP/1.1" 200 -
+2026-05-07 14:42:25,475 [INFO] ✅ Added Q&A: 'kính dưới 500k'
+2026-05-07 14:42:25,596 [INFO]   → topics=17  qa_pairs=90
+2026-05-07 14:42:25,703 [INFO]   → TF-IDF (92, 1816)
+2026-05-07 14:42:25,705 [INFO] ✅ Knowledge loaded: {'topics_count': 17, 'qa_count': 90, 'sentences_count': 2, 'file_kb': 36.7}
+2026-05-07 14:42:25,710 [INFO] 127.0.0.1 - - [07/May/2026 14:42:25] "POST /api/feedback/add-qa HTTP/1.1" 200 -
+2026-05-07 14:42:27,257 [INFO] 127.0.0.1 - - [07/May/2026 14:42:27] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:42:31,906 [INFO] 127.0.0.1 - - [07/May/2026 14:42:31] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:43:02,165 [INFO] 127.0.0.1 - - [07/May/2026 14:43:02] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:43:32,464 [INFO] 127.0.0.1 - - [07/May/2026 14:43:32] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:44:02,152 [INFO] 127.0.0.1 - - [07/May/2026 14:44:02] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:44:32,469 [INFO] 127.0.0.1 - - [07/May/2026 14:44:32] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:45:02,167 [INFO] 127.0.0.1 - - [07/May/2026 14:45:02] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:45:43,395 [INFO] 127.0.0.1 - - [07/May/2026 14:45:43] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:46:02,169 [INFO] 127.0.0.1 - - [07/May/2026 14:46:02] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:46:32,486 [INFO] 127.0.0.1 - - [07/May/2026 14:46:32] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:47:06,185 [INFO] 127.0.0.1 - - [07/May/2026 14:47:06] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-07 14:48:06,484 [INFO] 127.0.0.1 - - [07/May/2026 14:48:06] "GET /api/feedback/list?limit=10 HTTP/1.1" 200 -
+2026-05-14 15:30:49,786 [INFO] ✅ MySQL pool: localhost/eyewear_shop
+2026-05-14 15:30:49,897 [INFO]   → topics=17  qa_pairs=90
+2026-05-14 15:31:28,876 [INFO]   → TF-IDF (92, 1816)
+2026-05-14 15:31:28,877 [INFO] ✅ Knowledge loaded: {'topics_count': 17, 'qa_count': 90, 'sentences_count': 2, 'file_kb': 36.7}
+2026-05-14 15:31:28,878 [INFO] ✅ Knowledge: {'topics_count': 17, 'qa_count': 90, 'sentences_count': 2, 'file_kb': 36.7}
+2026-05-14 15:31:30,725 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.4:5000
+2026-05-14 15:31:30,726 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-14 15:31:48,284 [INFO] 127.0.0.1 - - [14/May/2026 15:31:48] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-14 15:31:48,518 [INFO] [session_1778425486267_zi1r2q88p] >>> j
+2026-05-14 15:31:48,618 [INFO] [session_1778425486267_zi1r2q88p] intent=unknown conf=0.00 product='' neg=False
+2026-05-14 15:31:50,786 [INFO]   Knowledge hit: conf=0.85 src=qa_exact q='jj'
+2026-05-14 15:31:50,787 [INFO] [session_1778425486267_zi1r2q88p] <<< (knowledge, 0.60): không liên quan
+2026-05-14 15:31:50,798 [INFO] 127.0.0.1 - - [14/May/2026 15:31:50] "POST /api/chat HTTP/1.1" 200 -
+2026-05-14 15:31:53,921 [INFO] 127.0.0.1 - - [14/May/2026 15:31:53] "OPTIONS /api/chat HTTP/1.1" 200 -
+2026-05-14 15:31:54,247 [INFO] [session_1778425486267_zi1r2q88p] >>> jj
+2026-05-14 15:31:54,249 [INFO] [session_1778425486267_zi1r2q88p] intent=unknown conf=0.00 product='' neg=False
+2026-05-14 15:31:54,263 [INFO]   Knowledge hit: conf=1.00 src=tfidf q='jj'
+2026-05-14 15:31:54,264 [INFO] [session_1778425486267_zi1r2q88p] <<< (knowledge, 0.60): không liên quan
+2026-05-14 15:31:54,272 [INFO] 127.0.0.1 - - [14/May/2026 15:31:54] "POST /api/chat HTTP/1.1" 200 -
