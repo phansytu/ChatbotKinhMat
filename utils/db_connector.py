@@ -46,7 +46,7 @@ class DatabaseConnector:
             )
             logger.info(f"✅ MySQL pool: {Config.DB_HOST}/{Config.DB_NAME}")
         except Error as e:
-            logger.error(f"❌ MySQL: {e}")
+            logger.warning(f"❌ MySQL: {e}")
             self._pool = None
 
     def test_connection(self) -> bool:

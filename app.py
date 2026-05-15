@@ -358,14 +358,21 @@ def products_search():
 # =============================================================
 
 if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+
     print("=" * 60)
     print("  CHATBOT TƯ VẤN KÍNH MẮT v2.0")
     print("=" * 60)
-    print(f"  Web:          http://localhost:{Config.PORT}")
-    print(f"  Chat API:     POST http://localhost:{Config.PORT}/api/chat")
-    print(f"  Feedback:     GET  http://localhost:{Config.PORT}/api/feedback/list")
-    print(f"  Thêm Q&A:     POST http://localhost:{Config.PORT}/api/feedback/add-qa")
-    print(f"  Retrain:      POST http://localhost:{Config.PORT}/api/retrain")
-    print(f"  Health:       GET  http://localhost:{Config.PORT}/api/health")
+    print(f"  Web:          http://localhost:{port}")
+    print(f"  Chat API:     POST http://localhost:{port}/api/chat")
+    print(f"  Feedback:     GET  http://localhost:{port}/api/feedback/list")
+    print(f"  Thêm Q&A:     POST http://localhost:{port}/api/feedback/add-qa")
+    print(f"  Retrain:      POST http://localhost:{port}/api/retrain")
+    print(f"  Health:       GET  http://localhost:{port}/api/health")
     print("=" * 60)
-    app.run(host=Config.HOST, port=Config.PORT, debug=Config.DEBUG)
+
+    app.run(
+        host='0.0.0.0',
+        port=port,
+        debug=False
+    )
