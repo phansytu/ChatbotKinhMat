@@ -1,14 +1,3 @@
-"""
-=============================================================
-INTENT CLASSIFIER - Fixed v2
-=============================================================
-Fix:
-  1. Không nhận nhầm "mặt tròn", "chống ánh sáng xanh" là tên SP
-  2. Tách biệt rõ intent consult_face / ask_feature / ask_product
-  3. Chỉ extract product_name khi thực sự có tên SP cụ thể
-=============================================================
-"""
-
 import re
 from typing import Dict, List, Tuple, Optional
 import logging
@@ -242,6 +231,7 @@ class IntentClassifier:
 
         matched = self._match_intents(norm)
         primary = matched[0][0] if matched else "unknown"
+        conf = matched[0][1] if matched else 0.0
         # Điều chỉnh intent cho câu hỏi phân loại sản phẩm
         if "kính" in norm and any(
             kw in norm for kw in ["loại", "phân loại", "các loại", "những loại"]
@@ -360,7 +350,7 @@ class IntentClassifier:
             if s in norm:
                 ent["style"] = s
                 break
-                # Thêm category cho câu hỏi phân loại
+        # Thêm category cho câu hỏi phân loại
         if intent == "ask_types" or any(kw in norm for kw in ["loại", "phân loại"]):
             category = self.extract_product_category(raw)
             if category:
