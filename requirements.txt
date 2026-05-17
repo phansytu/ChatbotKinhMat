@@ -9,8 +9,7 @@ numpy==1.26.4
 scikit-learn==1.4.2
 
 sentence-transformers==2.2.2
-transformers==4.36.2
-tokenizers==0.15.2
+
 
 torch==2.2.0
 
