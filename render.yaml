@@ -1,0 +1,15 @@
+services:
+
+* type: web
+  name: chatbot-kinhmat
+  runtime: python
+  plan: free
+
+  pythonVersion: "3.10.13"
+
+  buildCommand: |
+  python --version
+  pip install --upgrade pip setuptools wheel
+  pip install -r requirements.txt
+
+  startCommand: gunicorn app:app
