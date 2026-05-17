@@ -43,19 +43,19 @@ class ChatbotEngine:
     # =========================================================
 
     def load_knowledge(self, path: str) -> Dict:
-    # Khởi tạo semantic model trước khi load
-    if not self.knowledge.semantic_enabled:
-        self.knowledge.init_semantic_model()
+        # Khởi tạo semantic model trước khi load
+        if not self.knowledge.semantic_enabled:
+            self.knowledge.init_semantic_model()
     
-    result = self.knowledge.load_file(path)
+        result = self.knowledge.load_file(path)
     
-    # Log trạng thái semantic
-    if self.knowledge.semantic_enabled:
-        logger.info(f"✅ Semantic search enabled with {self.knowledge.question_vectors.shape[0]} vectors")
-    else:
-        logger.warning("⚠️ Semantic search disabled, using fallback methods")
+        # Log trạng thái semantic
+        if self.knowledge.semantic_enabled:
+            logger.info(f"✅ Semantic search enabled with {self.knowledge.question_vectors.shape[0]} vectors")
+        else:
+            logger.warning("⚠️ Semantic search disabled, using fallback methods")
     
-    return result
+        return result
 
     def process_message(self, message: str, session_id: str = 'default') -> Dict:
         analysis  = self.clf.classify(message)
