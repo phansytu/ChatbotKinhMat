@@ -242,21 +242,21 @@ class ChatbotEngine:
     #  KNOWLEDGE ONLY
     # =========================================================
 
-   def _handle_knowledge(self, message, intent, session_id) -> Dict:
-    # Ưu tiên 1: Semantic search (hybrid)
-    kn = self._semantic_search_knowledge(message, threshold=0.35)
+    def _handle_knowledge(self, message, intent, session_id) -> Dict:
+        # Ưu tiên 1: Semantic search (hybrid)
+        kn = self._semantic_search_knowledge(message, threshold=0.35)
     
-    # Ưu tiên 2: Legacy search nếu semantic không có kết quả
-    if not kn:
-        kn = self._search_knowledge(message)
+        # Ưu tiên 2: Legacy search nếu semantic không có kết quả
+        if not kn:
+            kn = self._search_knowledge(message)
     
-    if kn:
-        return self._ok(kn, 'knowledge', conf=0.8)
+        if kn: 
+            return self._ok(kn, 'knowledge', conf=0.8)
 
-    # Không có trong knowledge → lưu unresolved
-    self.feedback.save_no_knowledge(session_id, message)
-    default = self._service_default(intent)
-    return self._ok(default, 'template', conf=0.5, unresolved=True)
+        # Không có trong knowledge → lưu unresolved
+        self.feedback.save_no_knowledge(session_id, message)
+        default = self._service_default(intent)
+        return self._ok(default, 'template', conf=0.5, unresolved=True)
     
     def _search_knowledge(self, query: str) -> str:
         """Tìm trong knowledge.txt, trả về answer string hoặc rỗng"""
@@ -270,65 +270,59 @@ class ChatbotEngine:
         return ''
     
     def _semantic_search_knowledge(self, query: str, threshold: float = 0.35) -> str:
-    """
-    Tìm kiếm trong knowledge bằng semantic similarity
-    """
-    if not self.knowledge.is_loaded():
-        return ''
+        if not self.knowledge.is_loaded():
+           return ''
+
+        results = self.knowledge.search(query, top_k=1, threshold=threshold, use_hybrid=True)
     
-    # Dùng hybrid search (semantic + keyword)
-    results = self.knowledge.search(query, top_k=1, threshold=threshold, use_hybrid=True)
-    
-    if results:
-        conf = results[0]['confidence']
-        source = results[0].get('source', 'unknown')
-        logger.info(f"  🎯 Semantic hit: conf={conf:.3f} source={source}")
+        if results: 
+           conf = results[0]['confidence']
+           source = results[0].get('source', 'unknown')
+           logger.info(f"  🎯 Semantic hit: conf={conf:.3f} source={source}")
         
-        # Log thêm nếu là semantic match
         if source == 'semantic' or source == 'hybrid':
             matched_q = results[0].get('question', '')
             logger.info(f"     Matched question: {matched_q[:60]}...")
         
-        return results[0]['answer']
+            return results[0]['answer']
     
-    return ''
-
+        return ''
     # =========================================================
     #  FALLBACK
     # =========================================================
 
     def _handle_fallback(self, message, entities, session_id) -> Dict:
-    # Thử knowledge
-    kn = self._search_knowledge(message)
-    if kn:
-        return self._ok(kn, 'knowledge', conf=0.6)
+        # Thử knowledge
+        kn = self._search_knowledge(message)
+        if kn:
+            return self._ok(kn, 'knowledge', conf=0.6)
 
-    # Thử DB với từ khóa thô
-    if self.db and self.db.test_connection():
-        kw = self._clean_keyword(message)
-        if kw:
-            products = self.db.search_products({'keyword': kw, 'limit': 3})
-            if products:
-                return self._ok(
-                    "Shop tìm được một số sản phẩm liên quan, bạn xem thử nhé:",
-                    'db_fallback', products=products, conf=0.5
-                )
+        # Thử DB với từ khóa thô
+        if self.db and self.db.test_connection():
+            kw = self._clean_keyword(message)
+            if kw:
+                products = self.db.search_products({'keyword': kw, 'limit': 3})
+                if products:
+                    return self._ok(
+                        "Shop tìm được một số sản phẩm liên quan, bạn xem thử nhé:",
+                        'db_fallback', products=products, conf=0.5
+                    )
 
     # Thực sự không có gì → lưu unresolved
-    self.feedback.save_fallback(session_id, message)
-    return self._ok(random.choice([
-        "Dạ shop chưa hiểu rõ câu hỏi 😅 Bạn có thể hỏi theo cách khác không? Ví dụ:\n"
-        "• \"Kính RayBan Aviator giá bao nhiêu?\"\n"
-        "• \"Gợi ý kính cho mặt tròn dưới 400k\"\n"
-        "• \"Kính chống ánh sáng xanh loại nào tốt?\"",
+        self.feedback.save_fallback(session_id, message)
+        return self._ok(random.choice([
+            "Dạ shop chưa hiểu rõ câu hỏi 😅 Bạn có thể hỏi theo cách khác không? Ví dụ:\n"
+            "• \"Kính RayBan Aviator giá bao nhiêu?\"\n"
+            "• \"Gợi ý kính cho mặt tròn dưới 400k\"\n"
+            "• \"Kính chống ánh sáng xanh loại nào tốt?\"",
 
-        "Shop chưa nắm được ý bạn hỏi ơi 🤔 "
-        "Bạn đang hỏi về sản phẩm cụ thể, giá cả, hay tính năng gì ạ?",
-    ]), 'fallback', conf=0.1, unresolved=True)
+            "Shop chưa nắm được ý bạn hỏi ơi 🤔 "
+            "Bạn đang hỏi về sản phẩm cụ thể, giá cả, hay tính năng gì ạ?",
+        ]), 'fallback', conf=0.1, unresolved=True)
 
-    # =========================================================
-    #  NEGATIVE FEEDBACK
-    # =========================================================
+        # =========================================================
+        #  NEGATIVE FEEDBACK
+        # =========================================================
 
     def _handle_negative(self, session_id, message, entities) -> Dict:
         history = self._sessions.get(session_id, [])
