@@ -5,3 +5,7 @@ scikit-learn==1.4.0
 numpy==1.26.3
 
 python-dotenv==1.0.0
+sentence-transformers==2.2.2
+torch==2.1.2
+transformers==4.36.2
+tokenizers==0.15.0

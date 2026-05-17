@@ -45,9 +45,15 @@ engine = ChatbotEngine(db_connector=db)
 if os.path.exists(Config.KNOWLEDGE_FILE):
     stats = engine.load_knowledge(Config.KNOWLEDGE_FILE)
     logger.info(f"✅ Knowledge: {stats}")
+    
+    # Log semantic status
+    if engine.knowledge.semantic_enabled:
+        logger.info(f"✅ Semantic search ENABLED with model: {engine.knowledge.semantic_model._modules['0'].auto_model.config.name_or_path}")
+        logger.info(f"   Vectors count: {engine.knowledge.question_vectors.shape[0] if engine.knowledge.question_vectors is not None else 0}")
+    else:
+        logger.warning("⚠️ Semantic search DISABLED - install sentence-transformers for better accuracy")
 else:
     logger.warning("⚠️  knowledge.txt not found")
-
 
 # =============================================================
 #  GIAO DIỆN
@@ -294,15 +300,25 @@ def retrain():
             return jsonify({'error': f'File không tồn tại: {file_path}'}), 404
 
         stats = engine.load_knowledge(file_path)
-        logger.info(f"✅ Retrain: {stats}")
+        
+        # Thêm thông tin semantic status
+        semantic_status = {
+            'enabled': engine.knowledge.semantic_enabled,
+            'vectors_count': engine.knowledge.question_vectors.shape[0] if engine.knowledge.question_vectors is not None else 0,
+            'model_loaded': engine.knowledge.semantic_model is not None
+        }
+        
+        logger.info(f"✅ Retrain: {stats} | Semantic: {semantic_status}")
 
         return jsonify({
             'status': 'success',
             'message': '🎉 Huấn luyện lại thành công!',
             'stats': stats,
+            'semantic': semantic_status,
             'timestamp': datetime.now().isoformat()
         })
     except Exception as e:
+        logger.error(f"Retrain error: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
 
 
@@ -315,6 +331,14 @@ def health():
     db_ok = db.test_connection()
     stats = db.get_statistics() if db_ok else {}
     fb_stats = engine.get_feedback_stats()
+    
+    # Thêm thông tin semantic
+    semantic_info = {
+        'enabled': engine.knowledge.semantic_enabled,
+        'vectors_count': engine.knowledge.question_vectors.shape[0] if engine.knowledge.question_vectors is not None else 0,
+        'model_ready': engine.knowledge.semantic_model is not None
+    }
+    
     return jsonify({
         'status':           'ok',
         'database':         'connected' if db_ok else 'disconnected',
@@ -323,10 +347,64 @@ def health():
         'topics_count':     len(engine.get_topics()),
         'qa_count':         engine.get_qa_count(),
         'unresolved_count': fb_stats.get('unresolved_count', 0),
+        'semantic':         semantic_info,  # THÊM DÒNG NÀY
         'timestamp':        datetime.now().isoformat(),
         'version':          '2.0.0'
     })
 
+@app.route('/api/semantic/test', methods=['POST'])
+def test_semantic():
+    """
+    Test semantic search - dùng để debug.
+    
+    Request:
+      { "query": str, "threshold": float (optional) }
+    
+    Response:
+      { "results": [...], "enabled": bool }
+    """
+    try:
+        data = request.get_json() or {}
+        query = data.get('query', '').strip()
+        threshold = data.get('threshold', 0.35)
+        
+        if not query:
+            return jsonify({'error': 'Thiếu query'}), 400
+        
+        if not engine.knowledge.semantic_enabled:
+            return jsonify({
+                'enabled': False,
+                'message': 'Semantic search chưa được kích hoạt. Hãy gọi /api/retrain trước.'
+            }), 200
+        
+        # Gọi hàm test từ chatbot engine
+        results = engine.test_semantic_search(query)
+        
+        return jsonify({
+            'enabled': True,
+            'query': query,
+            'threshold': threshold,
+            'results': results.get('results', []),
+            'total_found': results.get('results_count', 0)
+        })
+        
+    except Exception as e:
+        logger.error(f"Test semantic error: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/semantic/status', methods=['GET'])
+def semantic_status():
+    """
+    Kiểm tra trạng thái semantic search
+    """
+    return jsonify({
+        'enabled': engine.knowledge.semantic_enabled,
+        'model_loaded': engine.knowledge.semantic_model is not None,
+        'vectors_count': engine.knowledge.question_vectors.shape[0] if engine.knowledge.question_vectors is not None else 0,
+        'qa_pairs_count': engine.get_qa_count(),
+        'is_ready': engine.is_ready()
+    })
 
 @app.route('/api/topics', methods=['GET'])
 def topics():
@@ -352,7 +430,49 @@ def products_search():
     products = db.search_products(filters)
     return jsonify({'products': products, 'count': len(products)})
 
-
+@app.route('/api/knowledge/questions', methods=['GET'])
+def list_knowledge_questions():
+    """
+    Xem danh sách câu hỏi đã học trong knowledge base.
+    Dành cho admin để kiểm tra.
+    
+    Query params:
+      limit: số lượng (default 100)
+      search: từ khóa tìm kiếm (optional)
+    """
+    try:
+        limit = request.args.get('limit', 100, type=int)
+        search = request.args.get('search', '').strip().lower()
+        
+        if not engine.knowledge.is_loaded():
+            return jsonify({'error': 'Knowledge base chưa được load'}), 503
+        
+        # Lấy danh sách câu hỏi từ qa_pairs
+        questions = []
+        for qa in engine.knowledge.qa_pairs:
+            question = qa.get('question', '')
+            if search and search not in question.lower():
+                continue
+            questions.append({
+                'question': question,
+                'answer_preview': qa.get('answer', '')[:150] + ('...' if len(qa.get('answer', '')) > 150 else ''),
+                'topic': qa.get('topic', 'Chung'),
+                'answer_length': len(qa.get('answer', ''))
+            })
+        
+        # Giới hạn số lượng
+        questions = questions[:limit]
+        
+        return jsonify({
+            'total': len(engine.knowledge.qa_pairs),
+            'showing': len(questions),
+            'questions': questions,
+            'semantic_enabled': engine.knowledge.semantic_enabled
+        })
+        
+    except Exception as e:
+        logger.error(f"List questions error: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
 # =============================================================
 #  MAIN
 # =============================================================

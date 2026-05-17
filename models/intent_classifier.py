@@ -11,7 +11,8 @@ Fix:
 
 import re
 from typing import Dict, List, Tuple, Optional
-
+import logging
+logger = logging.getLogger(__name__)
 
 # ── INTENTS ─────────────────────────────────────────────────
 
@@ -46,6 +47,10 @@ INTENTS = {
     'thanks':             ['cảm ơn', 'thank', 'cám ơn', 'ok rồi', 'hiểu rồi', 'vậy thôi'],
     'goodbye':            ['tạm biệt', 'bye', 'thôi nhé', 'gặp lại'],
     'urgent':             ['gấp lắm', 'cần gấp', 'nhanh nhất', 'hôm nay cần'],
+    'ask_types':          ['có những loại nào', 'gồm những loại', 'phân loại', 
+                           'các loại', 'những loại', 'chia thành mấy loại',
+                           'có mấy loại', 'dạng nào', 'kiểu nào', 'loại kính',
+                           'nhóm chính', 'thể loại', 'chủng loại', 'phân khúc'],
 }
 
 # Từ/cụm từ KHÔNG phải tên sản phẩm
@@ -63,6 +68,10 @@ NOT_PRODUCT_NAME = {
     'rẻ', 'đẹp', 'tốt', 'bền', 'nhẹ', 'phù hợp',
     'cho tôi', 'cho mình', 'cho em', 'giúp tôi',
     'kinh', 'gong', 'mat kinh',
+     # Câu hỏi phân loại
+    'có những loại', 'gồm những loại', 'phân loại', 'các loại', 'những loại',
+    'chia thành', 'mấy loại', 'dạng nào', 'kiểu nào', 'loại kính râm',
+    'phân loại kính', 'các dạng', 'các kiểu',
 }
 
 # Thương hiệu đã biết — ưu tiên tìm tên SP khi có
@@ -81,6 +90,11 @@ class IntentClassifier:
 
         matched   = self._match_intents(norm)
         primary   = matched[0][0] if matched else 'unknown'
+                # Điều chỉnh intent cho câu hỏi phân loại sản phẩm
+        if 'kính' in norm and any(kw in norm for kw in ['loại', 'phân loại', 'các loại', 'những loại']):
+            primary = 'ask_types'
+            conf = max(conf, 0.85)
+            logger.debug(f"🎯 Detected type query: {primary}")
         conf      = matched[0][1] if matched else 0.0
         sub       = [i for i, _ in matched[1:4]]
 
@@ -162,6 +176,11 @@ class IntentClassifier:
             if s in norm:
                 ent['style'] = s
                 break
+                # Thêm category cho câu hỏi phân loại
+        if intent == 'ask_types' or any(kw in norm for kw in ['loại', 'phân loại']):
+            category = self.extract_product_category(raw)
+            if category:
+                ent['product_category'] = category
 
         return ent
 
@@ -297,3 +316,97 @@ class IntentClassifier:
         for a, b in abbrs.items():
             t = t.replace(a, b)
         return t
+    
+        # =========================================================
+    #  SEMANTIC INTENT DETECTION (THÊM MỚI)
+    # =========================================================
+    
+    def detect_intent_semantic(self, message: str, semantic_results: list = None) -> Dict:
+        """
+        Phát hiện intent dựa trên semantic search results
+        Dùng khi knowledge base có semantic search
+        """
+        norm = self._normalize(message)
+        
+        # Mặc định dùng rule-based
+        matched = self._match_intents(norm)
+        primary = matched[0][0] if matched else 'unknown'
+        conf = matched[0][1] if matched else 0.0
+        
+        # Nếu có semantic results, ưu tiên điều chỉnh
+        if semantic_results and len(semantic_results) > 0:
+            top_result = semantic_results[0]
+            matched_question = top_result.get('question', '').lower()
+            semantic_conf = top_result.get('confidence', 0)
+            
+            # Phát hiện intent từ câu hỏi đã match
+            if 'có những loại' in matched_question or 'phân loại' in matched_question:
+                primary = 'ask_types'
+                conf = max(conf, semantic_conf)
+            elif 'giá' in matched_question or 'bao nhiêu' in matched_question:
+                primary = 'search_by_price'
+                conf = max(conf, semantic_conf)
+            elif 'so sánh' in matched_question or 'khác nhau' in matched_question:
+                primary = 'ask_compare'
+                conf = max(conf, semantic_conf)
+            elif 'mặt' in matched_question and ('tròn' in matched_question or 'vuông' in matched_question):
+                primary = 'consult_face'
+                conf = max(conf, semantic_conf)
+        
+        return {
+            'intent': primary,
+            'confidence': conf,
+            'is_type_query': primary == 'ask_types',
+            'is_price_query': primary == 'search_by_price',
+            'is_compare_query': primary == 'ask_compare'
+        }
+    
+    def extract_product_category(self, message: str) -> Optional[str]:
+        """
+        Trích xuất danh mục sản phẩm từ câu hỏi
+        Ví dụ: "kính râm", "kính cận", "kính đổi màu"
+        """
+        norm = self._normalize(message)
+        
+        categories = {
+            'kính râm': ['kính râm', 'kính mát', 'sunglass', 'kính đen', 'kính chống nắng'],
+            'kính cận': ['kính cận', 'kính thuốc', 'kính viễn', 'eyeglass'],
+            'kính đổi màu': ['kính đổi màu', 'photochromic', 'kính transition'],
+            'kính thể thao': ['kính thể thao', 'kính chạy bộ', 'sport glasses'],
+            'kính lọc ánh sáng xanh': ['chống ánh sáng xanh', 'blue light', 'kính máy tính']
+        }
+        
+        for category, keywords in categories.items():
+            if any(kw in norm for kw in keywords):
+                return category
+        
+        return None
+        def debug_intent(self, message: str) -> Dict:
+        """
+        Debug intent detection - in ra chi tiết
+        """
+        norm = self._normalize(message)
+        matched = self._match_intents(norm)
+        entities = self._extract_entities(message, norm, matched[0][0] if matched else 'unknown')
+        category = self.extract_product_category(message)
+        
+        print(f"\n{'='*50}")
+        print(f"🔍 Debug Intent: {message}")
+        print(f"{'='*50}")
+        print(f"Normalized: {norm}")
+        print(f"Top intents: {matched[:3]}")
+        print(f"Primary intent: {matched[0][0] if matched else 'unknown'} (conf={matched[0][1] if matched else 0:.2f})")
+        print(f"Entities: {entities}")
+        print(f"Product category: {category}")
+        print(f"Is type query: {any(kw in norm for kw in ['loại', 'phân loại'])}")
+        print(f"{'='*50}\n")
+        
+        return {
+            'message': message,
+            'normalized': norm,
+            'intents': matched[:3],
+            'primary_intent': matched[0][0] if matched else 'unknown',
+            'confidence': matched[0][1] if matched else 0,
+            'entities': entities,
+            'product_category': category
+        }

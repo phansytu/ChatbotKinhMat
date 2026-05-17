@@ -23,6 +23,8 @@ REASON = {
     'user_complaint':   '👎 Khách phản hồi chưa đúng',
     'no_knowledge':     '📚 Không có trong knowledge.txt',
     'fallback':         '🔄 Trả lời fallback chung',
+        'type_query_no_data':   '📋 Câu hỏi phân loại chưa có dữ liệu',
+    'semantic_no_match':    '🔍 Semantic search không tìm thấy kết quả',
 }
 
 
@@ -126,6 +128,41 @@ class FeedbackManager:
             bot_answer='[Fallback]',
             reason='fallback'
         )
+        # =========================================================
+    #  PHƯƠNG THỨC MỚI CHO CÂU HỎI PHÂN LOẠI
+    # =========================================================
+    
+    def save_type_query_missing(self, session_id: str, 
+                                 user_question: str,
+                                 category: str = '',
+                                 confidence: float = 0.0) -> bool:
+        """
+        Lưu câu hỏi phân loại sản phẩm chưa có dữ liệu
+        """
+        bot_answer = f'[Chưa có dữ liệu phân loại cho {category}]' if category else ''
+        return self.save_unresolved(
+            session_id=session_id,
+            user_question=user_question,
+            bot_answer=bot_answer,
+            product_context=category,
+            user_feedback=f'type_query|category={category}|conf={confidence:.2f}',
+            reason='type_query_no_data'
+        )
+    
+    def save_semantic_no_match(self, session_id: str,
+                                user_question: str,
+                                top_scores: list = None) -> bool:
+        """
+        Lưu câu hỏi semantic search không tìm thấy kết quả
+        """
+        feedback = f'semantic_no_match|top_scores={top_scores}' if top_scores else ''
+        return self.save_unresolved(
+            session_id=session_id,
+            user_question=user_question,
+            bot_answer='[Semantic search không tìm thấy câu trả lời phù hợp]',
+            user_feedback=feedback,
+            reason='semantic_no_match'
+        )
 
     # =========================================================
     #  ĐỌC UNRESOLVED
@@ -190,6 +227,53 @@ class FeedbackManager:
             r = it.get('reason', 'other')
             stats[r] = stats.get(r, 0) + 1
         return stats
+        # =========================================================
+    #  LỌC THEO CATEGORY VÀ TYPE
+    # =========================================================
+    
+    def get_unresolved_by_category(self, category: str = '', limit: int = 50) -> List[Dict]:
+        """
+        Lọc câu hỏi chưa xử lý theo danh mục sản phẩm
+        """
+        items = self.get_unresolved_list(limit=limit)
+        if not category:
+            return items
+        
+        filtered = []
+        category_lower = category.lower()
+        
+        for item in items:
+            product_ctx = item.get('product_context', '').lower()
+            question = item.get('question', '').lower()
+            
+            if category_lower in product_ctx or category_lower in question:
+                filtered.append(item)
+        
+        return filtered
+    
+    def get_type_query_unresolved(self, limit: int = 50) -> List[Dict]:
+        """
+        Lấy các câu hỏi phân loại chưa được trả lời
+        """
+        items = self.get_unresolved_list(limit=limit, reason_filter='type_query_no_data')
+        
+        # Thêm các câu hỏi có chứa từ khóa phân loại
+        type_keywords = ['loại', 'phân loại', 'các loại', 'những loại', 'dạng', 'kiểu']
+        all_items = self.get_unresolved_list(limit=limit)
+        
+        for item in all_items:
+            question = item.get('question', '').lower()
+            if any(kw in question for kw in type_keywords):
+                if item not in items:
+                    items.append(item)
+        
+        return items[:limit]
+    
+    def get_semantic_failed_queries(self, limit: int = 30) -> List[Dict]:
+        """
+        Lấy các câu hỏi semantic search không tìm thấy kết quả
+        """
+        return self.get_unresolved_list(limit=limit, reason_filter='semantic_no_match')
 
     # =========================================================
     #  BỔ SUNG ĐÁP ÁN → KNOWLEDGE
@@ -247,6 +331,112 @@ class FeedbackManager:
         except Exception as e:
             logger.error(f"Template error: {e}")
             return ''
+        # =========================================================
+    #  EXPORT CHO HUẤN LUYỆN SEMANTIC
+    # =========================================================
+    
+    def export_for_training(self, output_path: str = 'data/training_data.json') -> str:
+        """
+        Export câu hỏi chưa trả lời thành file JSON để huấn luyện thêm
+        """
+        import json
+        
+        items = self.get_unresolved_list(limit=500)
+        training_data = []
+        
+        for item in items:
+            training_data.append({
+                'question': item.get('question', ''),
+                'answer': '',  # Admin sẽ điền sau
+                'category': self._extract_category_from_question(item.get('question', '')),
+                'reason': item.get('reason', ''),
+                'timestamp': item.get('timestamp', ''),
+                'priority': self._calculate_priority(item)
+            })
+        
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(training_data, f, ensure_ascii=False, indent=2)
+        
+        logger.info(f"✅ Exported {len(training_data)} questions to {output_path}")
+        return output_path
+    
+    def _extract_category_from_question(self, question: str) -> str:
+        """Trích xuất category từ câu hỏi"""
+        question_lower = question.lower()
+        
+        categories = {
+            'kính râm': ['kính râm', 'kính mát', 'sunglass'],
+            'kính cận': ['kính cận', 'kính thuốc'],
+            'kính đổi màu': ['kính đổi màu', 'photochromic'],
+        }
+        
+        for cat, keywords in categories.items():
+            if any(kw in question_lower for kw in keywords):
+                return cat
+        
+        return 'general'
+    
+    def _calculate_priority(self, item: Dict) -> int:
+        """
+        Tính priority (1-5) dựa trên số lần xuất hiện và reason
+        5 = cần xử lý ngay, 1 = có thể để sau
+        """
+        question = item.get('question', '')
+        
+        # Kiểm tra tần suất
+        freq_items = self.get_frequent_questions(20)
+        for f in freq_items:
+            if f['question'] == question.lower():
+                if f['count'] >= 3:
+                    return 5
+                elif f['count'] >= 2:
+                    return 4
+        
+        # Priority theo reason
+        reason = item.get('reason', '')
+        if 'missing_product' in reason:
+            return 5
+        elif 'type_query' in reason:
+            return 4
+        elif 'no_knowledge' in reason:
+            return 3
+        elif 'semantic_no_match' in reason:
+            return 3
+        
+        return 2
+    
+    def get_training_summary(self) -> Dict:
+        """
+        Tổng kết dữ liệu cần huấn luyện thêm
+        """
+        type_queries = self.get_type_query_unresolved(100)
+        semantic_fails = self.get_semantic_failed_queries(100)
+        missing_products = self.get_unresolved_by_category('', 100)
+        
+        return {
+            'total_unresolved': self.get_unresolved_count(),
+            'type_queries_needed': len(type_queries),
+            'semantic_failures': len(semantic_fails),
+            'missing_products': len(missing_products),
+            'by_reason': self.get_stats_by_reason(),
+            'top_10_frequent': self.get_frequent_questions(10),
+            'estimated_training_effort': self._estimate_effort()
+        }
+    
+    def _estimate_effort(self) -> str:
+        """Ước lượng công việc cần làm"""
+        count = self.get_unresolved_count()
+        
+        if count == 0:
+            return "✅ Không cần bổ sung"
+        elif count <= 10:
+            return "🟢 Nhẹ - có thể bổ sung trong 5-10 phút"
+        elif count <= 30:
+            return "🟡 Trung bình - cần 15-20 phút"
+        elif count <= 50:
+            return "🟠 Nhiều - cần 30-40 phút"
+        else:
+            return "🔴 Rất nhiều - ưu tiên xử lý các câu hỏi tần suất cao trước"
 
     def get_stats(self) -> Dict:
         return {
@@ -292,3 +482,85 @@ class FeedbackManager:
                 f.write("─" * 40 + "\n")
         except Exception:
             pass
+        # =========================================================
+    #  MERGE DỮ LIỆU TỪ NHIỀU NGUỒN
+    # =========================================================
+    
+    def merge_from_logs(self, log_path: str = 'chatbot.log') -> int:
+        """
+        Đọc log và trích xuất các câu hỏi chưa được trả lời
+        """
+        if not os.path.exists(log_path):
+            return 0
+        
+        count = 0
+        pattern = r'\[(.*?)\].*?>>> (.*?)$'
+        
+        try:
+            with open(log_path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    match = re.search(pattern, line)
+                    if match:
+                        timestamp = match.group(1)
+                        question = match.group(2).strip()
+                        
+                        # Kiểm tra xem đã có trong unresolved chưa
+                        existing = self.get_unresolved_list(limit=500)
+                        if not any(q.get('question') == question for q in existing):
+                            self.save_unresolved(
+                                session_id='log_import',
+                                user_question=question,
+                                bot_answer='[Từ log]',
+                                reason='no_knowledge'
+                            )
+                            count += 1
+            
+            logger.info(f"✅ Imported {count} questions from logs")
+            return count
+        except Exception as e:
+            logger.error(f"Merge from logs error: {e}")
+            return 0
+    
+    def clear_resolved(self, question_pattern: str = None) -> int:
+        """
+        Xóa các câu hỏi đã được giải quyết khỏi unresolved
+        """
+        items = self.get_unresolved_list(limit=1000)
+        removed = 0
+        
+        try:
+            # Đọc nội dung hiện tại
+            with open(self.unresolved_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            new_content = []
+            blocks = content.split('─' * 55)
+            
+            for block in blocks:
+                if 'USER_QUESTION:' not in block:
+                    if block.strip():
+                        new_content.append(block)
+                    continue
+                
+                # Kiểm tra có cần giữ lại không
+                keep = True
+                if question_pattern:
+                    match = re.search(r'USER_QUESTION:\s*(.+)', block)
+                    if match:
+                        question = match.group(1).strip()
+                        if question_pattern.lower() in question.lower():
+                            keep = False
+                            removed += 1
+                
+                if keep:
+                    new_content.append(block)
+            
+            # Ghi lại
+            with open(self.unresolved_path, 'w', encoding='utf-8') as f:
+                f.write('─' * 55 + '\n'.join(new_content))
+            
+            logger.info(f"✅ Removed {removed} resolved questions")
+            return removed
+        except Exception as e:
+            logger.error(f"Clear resolved error: {e}")
+            return 0
